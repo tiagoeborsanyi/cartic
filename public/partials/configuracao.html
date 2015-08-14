@@ -1,0 +1,141 @@
+<div class="span10">
+				<h2 class="centro">Configurações</h2>
+
+
+				
+
+				<!-- 
+				FORM DO MEMORANDO PARA TESTE
+			-->
+			<div class="tab-relatorio">
+
+
+			<ul class="nav nav-tabs" id="myTab">
+				<li><a data-toggle="tab" data-target="#situacao" class="btn-link">Situações</a></li>
+				<li><a data-toggle="tab" data-target="#locais" class="btn-link">Lotação</a></li>
+				<li><a data-toggle="tab" data-target="#outros" class="btn-link">Operação</a></li>
+			</ul>
+
+			<div class="tab-content">
+				<div class="tab-pane" id="situacao">
+					<div class="span11 memorando">
+				<form class="form-horizontal" ng-submit="situacaoLista()">
+
+					<div class="controls controls-row">
+						<div class="control-goup span8">
+							<label for="" class="control-label">Situação: </label>
+							<div class="controls"><input class="input-xlarge" type="text" placeholder="Incluir situação" id="" ng-model="eqpt.situacao"></div>
+						</div>
+					</div>
+
+					<div class="control-group">
+					</div>
+
+					<div class="controls centralizado" style="margin-left: 0;">
+					<button type="submit" class="btn btn-primary">Cadastrar</button>
+					</div>
+				</form>
+			</div>
+			
+			<br>
+			<div class="table-responsive">
+					<table class="table table-hover">
+						<tr>
+							<th>#</th>
+							<th>Situação</th>
+							<th>Editar</th>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</table>
+				</div>
+				
+				
+				</div>
+				<div class="tab-pane" id="locais">
+					<div class="span11 memorando">
+				<form class="form-horizontal" ng-submit="lotacao()">
+
+					<div class="controls controls-row">
+						<div class="control-goup span4">
+							<label for="" class="control-label">Lotação: </label>
+							<div class="controls"><input class="input-xlarge" type="text" placeholder="Incluir Lotação" id="" ng-model="lot.teste"></div>
+						</div>
+					</div>
+
+					<div class="control-group">
+					</div>
+
+					<div class="controls centralizado" style="margin-left: 0;">
+					<button type="submit" class="btn btn-primary">Cadastrar</button>
+					</div>
+				</form>
+			</div>
+
+			<br>
+			<div class="table-responsive">
+					<table class="table table-hover">
+						<tr>
+							<th>#</th>
+							<th>Lotação</th>
+							<th>Editar</th>
+						</tr>
+						<tr ng-repeat="lotacao in lot">
+							<td>{{$index+1}}</td>
+							<td>{{lotacao.teste}}</td>
+							<td>X</td>
+						</tr>
+					</table>
+				</div>
+
+
+			</div>
+
+
+
+				<div class="tab-pane" id="outros">
+					<div class="span11 memorando">
+				<form class="form-horizontal" ng-submit="operacaoLista()">
+
+					<div class="controls controls-row">
+						<div class="control-goup span4">
+							<label for="" class="control-label">Operação: </label>
+							<div class="controls"><input class="input-xlarge" type="text" placeholder="Incluir operação" id=""></div>
+						</div>
+					</div>
+
+					<div class="control-group">
+					</div>
+
+					<div class="controls centralizado" style="margin-left: 0;">
+					<button type="submit" class="btn btn-primary">Cadastrar</button>
+					</div>
+				</form>
+			</div>
+
+			<br>
+			<div class="table-responsive">
+					<table class="table table-hover">
+						<tr>
+							<th>#</th>
+							<th>Operação</th>
+						</tr>
+						<tr>
+							<td></td>
+							<td>{{}}</td>
+							<td>{{}}</td>
+						</tr>
+					</table>
+				</div>
+
+				</div>
+			</div>
+
+
+			</div>
+					
+
+			</div>

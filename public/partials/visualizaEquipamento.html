@@ -1,0 +1,249 @@
+<div class="span10">
+				<h2 class="centro">Relatórios - Equipamentos</h2>
+
+
+				
+
+				<!-- 
+				FORM DO MEMORANDO PARA TESTE
+			-->
+			<div class="tab-relatorio">
+
+
+			<ul class="nav nav-tabs" id="myTab">
+				<li><a data-toggle="tab" data-target="#data" class="btn-link">Cadastrados</a></li>
+				<li><a data-toggle="tab" data-target="#situacao" class="btn-link">Situação</a></li>
+				<li><a data-toggle="tab" data-target="#locais" class="btn-link">Transações - Lotação</a></li>
+				<li><a data-toggle="tab" data-target="#outros" class="btn-link">Operação</a></li>
+			</ul>
+
+			<div class="tab-content">
+				<div class="tab-pane" id="data">
+					<h2 class="centralizado">Equipamentos cadastrados</h2>
+
+				<!--
+				Tabela PARA EQUIPAMENTOS CADASTRADOS NO BD
+				-->
+				<div class="table-responsive">
+					<table class="table table-hover">
+						<tr>
+							<th>#</th>
+							<th>Tombo</th>
+							<th>Descrição</th>
+							<th>Usuário</th>
+							<th>Remover</th>
+						</tr>
+						<tr ng-repeat="equipamento in equipamentos | filter: global.search">
+							<td></td>
+							<td>{{equipamento.tombo}}</td>
+							<td><a ng-href="#/edita/equipamento/{{equipamento._id}}">{{equipamento.descricao}}</a></td>
+							<td>{{equipamento.usuario.nome}}</td>
+							<td><button ng-click="remove(equipamento)" class="btn-link"><i style="float: right;" class="icon-remove"></i></button></td>
+						</tr>
+					</table>
+				</div>
+				
+
+
+
+
+				</div>
+				<div class="tab-pane" id="situacao">
+					<div class="span11 memorando">
+				<form class="form-horizontal" ng-submit="situacao()">
+
+					<div class="controls controls-row">
+						<div class="control-goup span8">
+							<label for="" class="control-label">Situação: </label>
+							<div class="controls"><!--input class="input-xlarge" type="text" placeholder="Busca de situação do equipamento" id="" ng-model="eqpt.situacao"-->
+							<select ng-model="eqpt.situacao" ng-options="situ.situacao for situ in situacoes">
+								<option value="">--Escolha uma situação--</option>
+							</select>
+							</div>
+						</div>
+					</div>
+
+					<div class="control-group">
+					</div>
+
+					<div class="controls controls-row">
+						<div class="control-goup">
+							<label for="" class="control-label">Data Inicio</label>
+							<div class="controls"><input class="input-medium" type="date" id=""></div>
+						</div>						
+					</div>
+
+					<div class="control-group">
+					</div>
+					
+					
+					<div class="controls controls-row">
+						<div class="control-goup">
+								<label for="" class="control-label">Data Fim</label>
+								<div class="controls"><input class="input-medium" type="date"  id=""></div>
+						</div>
+					</div>
+
+					<div class="control-group">
+					</div>
+
+					<div class="controls centralizado" style="margin-left: 0;">
+					<button type="submit" class="btn btn-primary">Buscar</button>
+					</div>
+				</form>
+			</div>
+			
+			<br>
+			<div class="table-responsive">
+					<table class="table table-hover">
+						<tr>
+							<th>#</th>
+							<th>Tombo</th>
+							<th>Descrição</th>
+							<th>Situação</th>
+							<th>Data</th>
+						</tr>
+						<tr ng-repeat="situac in ept">
+							<td></td>
+							<td>{{situac._id}}</td>
+							<td>{{situac.descricao}}</td>
+							<td>{{situac.situacao}}</td>
+							<td>{{situac.ultimaData}}</td>
+						</tr>
+					</table>
+				</div>
+				
+				
+				</div>
+				<div class="tab-pane" id="locais">
+					<div class="span11 memorando">
+				<form class="form-horizontal" ng-submit="transacao()">
+
+					<div class="controls controls-row">
+						<div class="control-goup span4">
+							<label for="" class="control-label">Lotação: </label>
+							<div class="controls"><input class="input-xlarge" type="text" placeholder="Busca de todas as transações da lotação" id="" ng-model="opr.operacao"></div>
+						</div>
+					</div>
+
+					<div class="control-group">
+					</div>
+
+					<div class="controls controls-row">
+						<div class="control-goup">
+							<label for="" class="control-label">Data Inicio</label>
+							<div class="controls"><input class="input-medium" type="date" id=""></div>
+						</div>						
+					</div>
+
+					<div class="control-group">
+					</div>
+					
+					
+					<div class="controls controls-row">
+						<div class="control-goup">
+								<label for="" class="control-label">Data Fim</label>
+								<div class="controls"><input class="input-medium" type="date"  id=""></div>
+						</div>
+					</div>
+
+					<div class="control-group">
+					</div>
+
+					<div class="controls centralizado" style="margin-left: 0;">
+					<button type="submit" class="btn btn-primary">Buscar</button>
+					</div>
+				</form>
+			</div>
+
+
+			<div class="table-responsive">
+					<table class="table table-hover">
+						<tr>
+							<th>#</th>
+							<th>Tombo</th>
+							<th>Descrição</th>
+							<th>Data</th>
+						</tr>
+						<tr ng-repeat="transacao in trans">
+							<td></td>
+							<td>{{transacao._id}}</td>
+							<td>{{transacao.descricao}}</td>
+							<td>{{transacao.ultimaData}}</td>
+						</tr>
+					</table>
+				</div>
+
+
+			</div>
+
+
+
+				<div class="tab-pane" id="outros">
+					<div class="span11 memorando">
+				<form class="form-horizontal" ng-submit="operacao()">
+
+					<div class="controls controls-row">
+						<div class="control-goup span4">
+							<label for="" class="control-label">Tipo de Operação: </label>
+							<div class="controls"><input class="input-xlarge" type="text" placeholder="Buscar operações" id=""></div>
+						</div>
+					</div>
+
+					<div class="control-group">
+					</div>
+
+					<div class="controls controls-row">
+						<div class="control-goup">
+							<label for="" class="control-label">Data Inicio</label>
+							<div class="controls"><input class="input-medium" type="date" id=""></div>
+						</div>						
+					</div>
+
+					<div class="control-group">
+					</div>
+					
+					
+					<div class="controls controls-row">
+						<div class="control-goup">
+								<label for="" class="control-label">Data Fim</label>
+								<div class="controls"><input class="input-medium" type="date"  id=""></div>
+						</div>
+					</div>
+
+					<div class="control-group">
+					</div>
+
+					<div class="controls centralizado" style="margin-left: 0;">
+					<button type="submit" class="btn btn-primary">Buscar</button>
+					</div>
+				</form>
+			</div>
+
+
+			<div class="table-responsive">
+					<table class="table table-hover">
+						<tr>
+							<th>#</th>
+							<th>Tombo</th>
+							<th>Descrição</th>
+							<th>Data</th>
+						</tr>
+						<tr ng-repeat="operacao in opr">
+							<td></td>
+							<td>{{operacao._id}}</td>
+							<td>{{operacao.descricao}}</td>
+							<td>{{operacao.ultimaData}}</td>
+						</tr>
+					</table>
+				</div>
+
+
+			</div>
+		</div>
+
+
+	</div>
+					
+
+</div>

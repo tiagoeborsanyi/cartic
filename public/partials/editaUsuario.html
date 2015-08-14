@@ -1,0 +1,79 @@
+<h2 class="centro">Cadastro de usuário</h2>
+
+
+
+
+
+				
+
+				<!-- 
+				FORM DO CADASTRO DE USUARIO
+			-->
+			<div class="span11 memorando">
+				<form class="form-horizontal" ng-submit="salva()">
+
+					<div class="controls controls-row">
+						<div class="control-goup span4">
+							<label for="" class="control-label">Nome</label>
+							<div class="controls"><input class="input-xlarge" type="text" placeholder="Insira o nome do usuário" id="" required ng-model="usuario.nome"></div>
+						</div>
+					</div>
+
+					<div class="control-group">
+					</div>
+
+					<div class="controls controls-row">
+						<div class="control-goup span4">
+							<label for="" class="control-label">Email</label>
+							<div class="controls"><input class="input-xlarge" type="text" placeholder="Insira o email do usuário" id="" required ng-model="usuario.email"></div>
+						</div>
+					</div>
+
+					<div class="control-group">
+					</div>
+
+					<div class="controls controls-row">
+						<div class="control-goup span4">
+							<label for="" class="control-label">Administrador</label>
+							<div class="controls">
+								<label class="radio">
+									<input type="radio" name="adm" ng-value="true" ng-model="usuario.administrador"> Sim
+								</label>
+								<label class="radio">
+									<input type="radio" name="adm" ng-value="false" ng-model="usuario.administrador"> Não
+								</label>
+							</div>
+							</div>
+						</div>
+
+
+					<div class="control-group">
+					</div>
+
+					<div class="controls controls-row">
+						<div class="control-goup span4">
+							<label for="" class="control-label">Login</label>
+							<div class="controls"><input class="input-xlarge" type="text" placeholder="Insira o login do usuário" id="" required ng-model="usuario.login"></div>
+						</div>
+					</div>
+
+					<div class="control-group">
+					</div>
+
+					<div class="controls controls-row">
+						<div class="control-goup span4">
+							<label for="" class="control-label">Senha</label>
+							<div class="controls"><input class="input-xlarge" type="password" placeholder="Insira a senha do usuário" id="" required ng-model="usuario.senha"></div>
+						</div>
+					</div>
+
+					<div class="control-group">
+					</div>
+
+					<div class="controls centralizado" style="margin-left: 0;">
+					<button type="submit" class="btn btn-primary btn-large">Cadastrar</button>
+					</div>
+
+
+				</form>
+			</div>

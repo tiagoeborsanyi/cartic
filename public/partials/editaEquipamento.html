@@ -1,0 +1,52 @@
+<h2 class="centro">Cadastro de equipamento</h2>
+
+
+
+
+
+				
+
+				<!-- 
+				FORM DO CADASTRO DE EQUIPAMENTO
+				nO BANCO DE DADOS TERÁ O CAMPO ADICIONAL DO USUARIO E A DATA DE CADASTRO DO EQUIPAMENTO.
+			-->
+			<div class="span11 memorando">
+				<form class="form-horizontal" ng-submit="salva()">
+
+					<div class="controls controls-row">
+						<div class="control-goup span4">
+							<label for="" class="control-label">Tombo</label>
+							<div class="controls"><input class="input-xlarge" type="text" placeholder="Insira o tombo do equipamento" id="" required ng-model="equipamento.tombo"></div>
+						</div>
+					</div>
+
+					<div class="control-group">
+					</div>
+
+					<div class="controls controls-row">
+						<div class="control-goup span4">
+							<label for="" class="control-label">Descrição</label>
+							<div class="controls"><input class="input-xlarge" type="text" placeholder="Positivo i5, AMD i5, Itautec i5, LG 19 Polegadas" id="" required ng-model="equipamento.descricao"></div>
+						</div>
+					</div>
+
+					<div class="control-group">
+					</div>
+
+					<div class="controls controls-row">
+						<div class="control-goup span4">
+							<label for="" class="control-label">Situação</label>
+							<div class="controls"><input class="input-xlarge" type="text" placeholder="Pronto para entrega ou a definir" id="" ng-model="equipamento.situacao"></div>
+						</div>
+					</div>
+
+					<div class="control-group">
+					</div>
+
+					<div class="controls centralizado" style="margin-left: 0;">
+					<button type="submit" class="btn btn-primary btn-large">Cadastrar</button>
+					</div>
+
+
+				</form>
+			</div>

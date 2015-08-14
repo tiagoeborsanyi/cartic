@@ -1,0 +1,89 @@
+		.fundo{
+			background: #333;
+			padding: 5px;
+		}
+
+		
+
+		.popover-title, .popover-content {
+			background: #333;
+			width: 150px;
+		}
+
+		.texto-barra {
+			color: #fff;
+			text-align: center;
+			margin: 5px;
+		}
+
+		.texto-barra a {
+			color: #fff;
+		}
+
+		.borda{
+			border-right: 1px solid #ccf;
+			margin-top: 10px;
+		}
+
+		/*.row-fluid [class*="span"]{
+			margin-left: 10px;
+		}*/
+
+		.icone{
+			margin-left: 5px;
+		}
+
+		.centro{
+			text-align: center;
+		}
+
+		.usuario-barra-direita{
+			float: right;
+			padding-right: 20px;
+		}
+
+		.container-fluid{
+			padding-right: 0;
+		}
+
+		.titulo-colapse{
+			color: #666;
+		}
+
+		.titulo-colapse a:hover{
+			color: #fff;
+		}
+
+		/*
+		CSS DO MEMORANDO
+		*/
+		.memorando{
+			margin-top: 15px;
+			margin-bottom: 15px;
+			margin-right: auto;
+			margin-left: auto;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			padding: 10px;
+			background: #FFFAFA;
+			box-shadow: 5px 5px 2px 0px rgba(0, 0, 0, 0.40);
+
+		}
+
+		.centralizado{
+			text-align: center;
+		}
+
+		.table th, .table td{
+			text-align: center;
+		}
+
+		.row-fluid [class*="span"] {
+			display: table;
+		}
+
+		.form-lista .titulo-label{
+			text-align: left;
+		}
+
+		
