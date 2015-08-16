@@ -182,3 +182,6 @@ $scope.removelinha();
 	
 
 });
+
+
+//Esta dando erro na parte de match. Como resolve?
