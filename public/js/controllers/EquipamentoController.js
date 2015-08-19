@@ -116,6 +116,20 @@ angular.module('cartic').controller('EquipamentoController', function($http, $sc
 		});
 	};
 
+	function selecionaOperacao(){
+
+		$http.get('/configuracao/operacao').success(function(operacaolista){
+
+			$scope.operacoes = operacaolista;
+			
+		},
+		function(erro){
+			console.log(erro);
+			console.log('não foi possível obter o equipamento');
+		});
+	};
+
+	selecionaOperacao();
 	selecionaSituacao();
 
 	

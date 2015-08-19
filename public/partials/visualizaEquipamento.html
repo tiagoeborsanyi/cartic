@@ -186,7 +186,11 @@
 					<div class="controls controls-row">
 						<div class="control-goup span4">
 							<label for="" class="control-label">Tipo de Operação: </label>
-							<div class="controls"><input class="input-xlarge" type="text" placeholder="Buscar operações" id=""></div>
+							<div class="controls">
+								<select ng-model="eqpt.operacao" ng-options="opr.operacao for opr in operacoes">
+								<option value="">--Escolha uma situação--</option>
+							</select>
+							</div>
 						</div>
 					</div>
 

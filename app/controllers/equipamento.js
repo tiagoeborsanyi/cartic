@@ -121,6 +121,38 @@ module.exports = function(app){
 
 	};
 
+
+	//A operação se refere ao assunto do memorando
+	controller.operacao = function(req, res){
+
+		Equipamento.aggregate([
+			    {$sort: { ultimaData: 1}},
+			    {$group: {
+			        _id: "$tombo",
+			        assunto: {$last: "$assunto"},
+			        ultimaData: {$last: "$data"},
+			        descricao: {$last: "$descricao"}}
+			        
+			    }
+		  ], function(err, result){
+		  	if(err){
+		  		console.log("ERRO SITUACAO "+err);
+		  		return;
+		  	}
+		  		
+
+		  	//console.log("retur equipamento: "+result);
+		  	res.json(result);
+
+		  });
+
+	};
+
+	controller.transacao = function(req, res){
+
+
+	};
+
 	return controller;
 
 };
