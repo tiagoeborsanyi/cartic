@@ -1,4 +1,4 @@
-angular.module('cartic').factory('Configuracao', function($resource){
+angular.module('cartic').factory('Lot', function($resource){
 
 	return $resource('/configuracao/lotacao/:id');
 

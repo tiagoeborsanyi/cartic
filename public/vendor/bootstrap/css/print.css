@@ -1,0 +1,34 @@
+.texto-barra, .usuario-barra-direita, .borda, .accordion,
+.navbar-search, .navbar-inverse, .fundo, .usuario-barra-direita, .texto-barra{
+				display: none;
+			}
+
+
+			.linha-print{
+				display: inline;
+			}
+
+			body{
+				font: 12pt Arial;
+			}
+
+			h5{
+				font-size: 10pt;
+				font-weight: normal;
+				font-weight: 40%;
+			}
+
+			h6{
+				font-size: 6pt;
+				font-family: Georgia;
+				font-weight: normal;
+				font-weight: 40%;
+			}
+
+			.lista-tabela-imprime{
+				font-size:  10pt;
+			}
+
+			.titulo-imprime{
+				font-size: 10pt;
+			}

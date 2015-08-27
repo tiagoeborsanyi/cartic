@@ -69,7 +69,7 @@
 					<div class="controls controls-row">
 						<div class="control-goup">
 							<label for="" class="control-label">Data Inicio</label>
-							<div class="controls"><input class="input-medium" type="date" id=""></div>
+							<div class="controls"><input class="input-medium" type="date" id="" disabled></div>
 						</div>						
 					</div>
 
@@ -80,7 +80,7 @@
 					<div class="controls controls-row">
 						<div class="control-goup">
 								<label for="" class="control-label">Data Fim</label>
-								<div class="controls"><input class="input-medium" type="date"  id=""></div>
+								<div class="controls"><input class="input-medium" type="date"  id="" disabled></div>
 						</div>
 					</div>
 
@@ -122,7 +122,11 @@
 					<div class="controls controls-row">
 						<div class="control-goup span4">
 							<label for="" class="control-label">Lotação: </label>
-							<div class="controls"><input class="input-xlarge" type="text" placeholder="Busca de todas as transações da lotação" id="" ng-model="opr.operacao"></div>
+							<div class="controls">
+								<select ng-model="eqpt.situacao" ng-options="lot.teste for lot in lotacoes">
+									<option value="">--Escolha uma situação--</option>
+								</select>
+							</div>
 						</div>
 					</div>
 
@@ -132,7 +136,7 @@
 					<div class="controls controls-row">
 						<div class="control-goup">
 							<label for="" class="control-label">Data Inicio</label>
-							<div class="controls"><input class="input-medium" type="date" id=""></div>
+							<div class="controls"><input class="input-medium" type="date" id="" disabled></div>
 						</div>						
 					</div>
 
@@ -143,7 +147,7 @@
 					<div class="controls controls-row">
 						<div class="control-goup">
 								<label for="" class="control-label">Data Fim</label>
-								<div class="controls"><input class="input-medium" type="date"  id=""></div>
+								<div class="controls"><input class="input-medium" type="date"  id="" disabled></div>
 						</div>
 					</div>
 
@@ -188,7 +192,7 @@
 							<label for="" class="control-label">Tipo de Operação: </label>
 							<div class="controls">
 								<select ng-model="eqpt.operacao" ng-options="opr.operacao for opr in operacoes">
-								<option value="">--Escolha uma situação--</option>
+								<option value="">--Escolha uma Operação--</option>
 							</select>
 							</div>
 						</div>

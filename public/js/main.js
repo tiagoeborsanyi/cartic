@@ -10,6 +10,11 @@ angular.module('cartic', ['ngRoute', 'ngResource']).config(function($routeProvid
 		controller: 'MemorandoController'
 	});
 
+	$routeProvider.when('/memorando/imprime/:id', {
+		templateUrl: '/partials/imprimeMemorando.html',
+		controller: 'MemorandoController'
+	});
+
 	$routeProvider.when('/memorando/', {
 		templateUrl: '/partials/editaMemorando.html',
 		controller: 'MemorandoController'
@@ -62,7 +67,6 @@ angular.module('cartic', ['ngRoute', 'ngResource']).config(function($routeProvid
 		templateUrl: '/partials/configuracao.html',
 		controller: 'ConfiguracaoController'
 	});
-
 
 
 	$routeProvider.otherwise({redirectTo: '/inicio'});

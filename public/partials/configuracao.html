@@ -19,7 +19,7 @@
 			<div class="tab-content">
 				<div class="tab-pane" id="situacao">
 					<div class="span11 memorando">
-				<form class="form-horizontal" ng-submit="situacaoLista()">
+				<form class="form-horizontal" ng-submit="situacaoSalva()">
 
 					<div class="controls controls-row">
 						<div class="control-goup span8">
@@ -45,10 +45,10 @@
 							<th>Situação</th>
 							<th>Editar</th>
 						</tr>
-						<tr>
-							<td></td>
-							<td></td>
-							<td></td>
+						<tr ng-repeat="eqpt in situacoes">
+							<td>{{$index+1}}</td>
+							<td>{{eqpt.situacao}}</td>
+							<td>X</td>
 						</tr>
 					</table>
 				</div>
@@ -57,12 +57,12 @@
 				</div>
 				<div class="tab-pane" id="locais">
 					<div class="span11 memorando">
-				<form class="form-horizontal" ng-submit="lotacao()">
+				<form class="form-horizontal" ng-submit="salvaLotacao()">
 
 					<div class="controls controls-row">
 						<div class="control-goup span4">
 							<label for="" class="control-label">Lotação: </label>
-							<div class="controls"><input class="input-xlarge" type="text" placeholder="Incluir Lotação" id="" ng-model="lot.teste"></div>
+							<div class="controls"><input class="input-xlarge" type="text" placeholder="Incluir Lotação" id="" ng-model="lotacao.teste"></div>
 						</div>
 					</div>
 
@@ -98,12 +98,12 @@
 
 				<div class="tab-pane" id="outros">
 					<div class="span11 memorando">
-				<form class="form-horizontal" ng-submit="operacaoLista()">
+				<form class="form-horizontal" ng-submit="operacaoSalva()">
 
 					<div class="controls controls-row">
 						<div class="control-goup span4">
 							<label for="" class="control-label">Operação: </label>
-							<div class="controls"><input class="input-xlarge" type="text" placeholder="Incluir operação" id=""></div>
+							<div class="controls"><input class="input-xlarge" type="text" placeholder="Incluir operação" id="" ng-model="opr.operacao"></div>
 						</div>
 					</div>
 
@@ -122,11 +122,12 @@
 						<tr>
 							<th>#</th>
 							<th>Operação</th>
+							<th>Remover</th>
 						</tr>
-						<tr>
+						<tr ng-repeat="opr in operacoes">
+							<td>{{$index+1}}</td>
+							<td>{{opr.operacao}}</td>
 							<td></td>
-							<td>{{}}</td>
-							<td>{{}}</td>
 						</tr>
 					</table>
 				</div>

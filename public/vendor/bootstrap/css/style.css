@@ -86,4 +86,53 @@
 			text-align: left;
 		}
 
+
+		/*
+		CSS PARA IMPRESSÃO DO MEMORANDO
+		*/
+		.img-imprime{
+			float: left;
+			width: 100px;
+			height: 100px;
+		}
+
+		.data-imprime{
+			float: right;
+			padding: 15px;
+			margin-top: 10px;
+			margin-right: 40px;
+		}
+
+		.imprime-titulo{
+			margin-right: 12px;
+			padding-top: 20px;
+			padding-left: 110px;
+		}
+
+		.seis{
+			line-height: 40%;
+			
+		}
+
+		.imprime-assinatura{
+			line-height: 45%;
+		}
+
+		.imprime-rodape{
+			line-height: 40%;
+		}
+
+		h5, .imprime-fonte{
+			font-weight: normal;
+			font-size: 90%;
+			font-family: Georgia;
+			line-height: 96%;
+
+		}
+
+		.imprime-paragrafo{
+			line-height: 96%;
+			font-family: Georgia;
+		}
+
 		

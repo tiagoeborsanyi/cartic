@@ -5,6 +5,7 @@ module.exports = function(){
 	var schema = mongoose.Schema({
 		teste: {
 		type: String,
+		//default: "NAO GRAVO"
 		required: true
 		}
 	});

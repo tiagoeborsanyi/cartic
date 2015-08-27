@@ -1,0 +1,99 @@
+<!--
+				INICIO DO COMEÇO DO LAYOUT DE MEMORANDO PARA IMPRESSÃO
+				-->
+				<div class="span8">
+
+					<div>
+						<img src="vendor/bootstrap/img/brasao.jpg" class="img-imprime">
+						<div class="imprime-titulo">
+							<h6 class="seis">Poder Judiciário</h6>
+							<h6 class="seis">Justiça do Trabalho</h6>
+							<h6 class="seis">Tribunal Regional do Trabalho da 15º Região</h6>
+						</div>
+
+					</div>
+					<br><br>
+
+					<div>
+						<p class="imprime-paragrafo"><strong>De: </strong>{{memorando.lotacaosaida}}</p>
+
+						<p class="imprime-paragrafo"><strong>Para: </strong>{{memorando.lotacaodestino}}</p>
+					</div>
+
+
+					<br>
+					<p class="titulo-imprime">
+						<strong >Termo de Responsabilidade de Transferência de Equipamentos de TIC</strong> - Cartic nº  {{memorando.numeromemorando}} / {{2015}}
+					</p>
+
+
+
+					<p class="data-imprime">Em 27 de Agosto de 2015</p><br><br><br>
+
+					<p><strong>Assunto: </strong>{{memorando.assunto}}</p>
+
+					<table id="tabela" class="table table-bordered tabela">
+					<thead>
+						<tr>
+						<th class="centralizado">Nr. Tombo</th>
+						<th class="centralizado">Descrição</th>
+						<th class="centralizado">Lotação Destino</th>
+						</tr>
+					</thead>
+					<tbody id="tabela-body">
+					<tr ng-repeat="tabela in memorando.tabela">
+						<td>{{tabela.tombo}}</td>
+						<td>{{tabela.descricao}}</td>
+						<td>{{tabela.local}}</td>
+					</tr>
+					</tbody>
+				</table>
+
+				<p class="imprime-paragrafo"><strong>Obs.:</strong> {{memorando.observacao}}</p>
+				<br>
+
+				<div class="lista-tabela-imprime">
+					1 - Operações com Equipamentos de TIC (inclusive Conserto, Pedido, Devolução) - Obrigatórios:
+					<ul>
+						<li> Abertura de chamado</li>
+						<li> Termo de responsabilidade de Tranferência de Equipamentos de TIC, contendo Nr. de Tombo</li>
+					</ul>
+					2 - Identifique o(s) equipamentos a ser escolhido(s) com papel, de forma visível, e informe outros servidores (caso de ausência do solicitante no momento da entrega/coleta).
+					<br><br>
+					3 - Receber/devolver o(s) equipamento(s):
+					<ul>
+						<li>I. Conferir o(s) tombo(s) do Termo de Responsabilidade</li>
+						<li>1º Via - Arquivar na própria lotação para controle do Inventário de Equipamentos de TIC</li>
+						<li>2º Via - Devolver obrigatoriamente à Cartic-info (através dos funcionários que fizerem a entrega/coleta dos equipamentos.</li>
+					</ul>
+				</div>
+
+				<h5>
+					Declaro ter efetuado a 1. conferência dos dados  informados e o 2. recebimento/entrega dos equipamentos
+				</h5>
+				<br>
+
+				<h5>___________________________</h5>
+				<h5 class="imprime-assinatura">Diretor ou responsável pelo entrega/recebimento equipamentos</h5>
+				<h5 class="imprime-assinatura">Nome completo e assinatura</h5>
+
+
+				<br>
+				<h6 class="imprime-rodape">Assinar e devolver a 2º Via à AAAL CARTIC - <strong>Área Apoio Adm. Logistica de TIC Fone: 19 - 3231-5657</strong></h6>
+
+				<br><br>
+
+
+
+
+
+
+				</div>
+
+
+
+
+
+				<!--
+				FINAL DO LAYOUT DE MEMORANDO PARA IMPRESSÃO
+				-->

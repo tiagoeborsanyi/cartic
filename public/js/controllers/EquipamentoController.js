@@ -103,6 +103,10 @@ angular.module('cartic').controller('EquipamentoController', function($http, $sc
 		});
 	};
 
+	$scope.operacao = function(){
+
+	};
+
 	function selecionaSituacao(){
 
 		$http.get('/configuracao/situacao').success(function(situacaolista){
@@ -129,8 +133,23 @@ angular.module('cartic').controller('EquipamentoController', function($http, $sc
 		});
 	};
 
+	function selecionaLotacao(){
+
+		$http.get('/configuracao/lotacao').success(function(lotacaoLista){
+
+			$scope.lotacoes = lotacaoLista;
+			
+		},
+		function(erro){
+			console.log(erro);
+			console.log('não foi possível obter o equipamento');
+		});
+
+	};
+
 	selecionaOperacao();
 	selecionaSituacao();
+	selecionaLotacao();
 
 	
 
