@@ -89,6 +89,21 @@ angular.module('cartic').controller('ConfiguracaoController', function($http, $s
 
 	buscaLotacoes();
 
+	$scope.removeLotation = function(lotation){
+
+		var confirmar = confirm("Tem certeza que deseja remover esta situação.");
+
+		if(confirmar == true){
+			Lotacao.delete({id: lotation._id},
+				buscaLotacoes,
+				function(erro){
+					console.log("Não foi possível remover a situação.");
+					console.log(erro);
+				});
+		}
+		console.log(lotation);
+	};
+
 	function verificaLotacaoId(){
 
 		if($routeParams.lotacaoId){
@@ -140,6 +155,21 @@ angular.module('cartic').controller('ConfiguracaoController', function($http, $s
 	};
 
 	buscaOperacao();
+
+	$scope.removeOperation = funtion(operation){
+
+		var confirmar = confirm("Tem certeza que deseja remover esta situação.");
+
+		if(confirmar == true){
+			Operacao.delete({id: operation._id},
+				buscaOperacao,
+				function(erro){
+					console.log("Não foi possível remover a situação.");
+					console.log(erro);
+				});
+		}
+		console.log(operation);
+	};
 
 
 	function verificaOperacaoId(){

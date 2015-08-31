@@ -37,6 +37,17 @@ module.exports = function(app){
 
 	controller.removeLotacao = function(req, res){
 
+		var id = req.params.id;
+
+		Lotacao.remove({_id : id}).exec()
+			.then(
+				function(){
+					res.status(204).end();
+				},
+				function(erro){
+					return console.error(erro);
+				});
+
 	};
 
 	controller.salvaLotacao = function(req, res){
@@ -95,6 +106,17 @@ module.exports = function(app){
 
 	controller.removeOperacao = function(req, res){
 
+		var id = req.params.id;
+
+		Operacao.remove({_id : id}).exec()
+			.then(
+				function(){
+					res.status(204).end();
+				},
+				function(erro){
+					return console.error(erro);
+				});
+
 	};
 
 	controller.salvaOperacao = function(req, res){
@@ -128,6 +150,17 @@ module.exports = function(app){
 	};
 
 	controller.removeSituacao = function(req, res){
+
+		var id = req.params.id;
+
+		Situacao.remove({_id : id}).exec()
+			.then(
+				function(){
+					res.status(204).end();
+				},
+				function(erro){
+					return console.error(erro);
+				});
 
 	};
 

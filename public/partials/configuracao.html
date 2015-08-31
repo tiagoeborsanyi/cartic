@@ -86,7 +86,7 @@
 						<tr ng-repeat="lotacao in lot">
 							<td>{{$index+1}}</td>
 							<td>{{lotacao.teste}}</td>
-							<td>X</td>
+							<td><button ng-click="removeLotation(lotacao)" class="btn-link"><i class="icon-remove"></i></button></td>
 						</tr>
 					</table>
 				</div>
@@ -127,7 +127,7 @@
 						<tr ng-repeat="opr in operacoes">
 							<td>{{$index+1}}</td>
 							<td>{{opr.operacao}}</td>
-							<td></td>
+							<td><button ng-click="removeOperation(opr)" class="btn-link"><i class="icon-remove"></i></button></td>
 						</tr>
 					</table>
 				</div>
