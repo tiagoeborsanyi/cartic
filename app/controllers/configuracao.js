@@ -35,9 +35,13 @@ module.exports = function(app){
 
 	};
 
+	controller.removeLotacao = function(req, res){
+
+	};
+
 	controller.salvaLotacao = function(req, res){
 
-		var _id = req.body._id;		
+		var _id = req.body._id;
 
 		var dados = {
 			"teste" : req.body.teste
@@ -89,6 +93,10 @@ module.exports = function(app){
 
 	};
 
+	controller.removeOperacao = function(req, res){
+
+	};
+
 	controller.salvaOperacao = function(req, res){
 
 		 var operacao = new Operacao(req.body);
@@ -99,7 +107,7 @@ module.exports = function(app){
 			}else{
 				res.json(operacao);
 			}
-		}); 
+		});
 	};
 
 	controller.listaSituacoes = function(req, res){
@@ -119,6 +127,10 @@ module.exports = function(app){
 
 	};
 
+	controller.removeSituacao = function(req, res){
+
+	};
+
 	controller.salvaSituacao = function(req, res){
 
 		var situacao = new Situacao(req.body);
@@ -129,9 +141,9 @@ module.exports = function(app){
 			}else{
 				res.json(situacao);
 			}
-		}); 
+		});
 	};
 
 	return controller;
-	
+
 };

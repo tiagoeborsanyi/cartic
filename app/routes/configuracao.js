@@ -15,22 +15,25 @@ module.exports = function(app){
 			.post(varificaAutenticacao, controller.salvaLotacao);
 
 	app.route('/configuracao/lotacao/:id')
-			.get(varificaAutenticacao, controller.obtemLotacao);
+			.get(varificaAutenticacao, controller.obtemLotacao)
+			.delete(varificaAutenticacao, controller.removeLotacao);
 
 	app.route('/configuracao/operacao')
 			.get(varificaAutenticacao, controller.listaOperacoes)
 			.post(varificaAutenticacao, controller.salvaOperacao);
 
 	app.route('/configuracao/operacao/:id')
-			.get(varificaAutenticacao, controller.obtemOperacao);
+			.get(varificaAutenticacao, controller.obtemOperacao)
+			.delete(varificaAutenticacao, controller.removeOperacao);
 
 	app.route('/configuracao/situacao')
 			.get(varificaAutenticacao, controller.listaSituacoes)
 			.post(varificaAutenticacao, controller.salvaSituacao);
 
 	app.route('/configuracao/situacao/:id')
-			.get(varificaAutenticacao, controller.obtemSituacao);
+			.get(varificaAutenticacao, controller.obtemSituacao)
+			.delete(varificaAutenticacao, controller.removeSituacao);
 
-	
+
 
 };

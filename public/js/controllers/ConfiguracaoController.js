@@ -4,7 +4,7 @@ angular.module('cartic').controller('ConfiguracaoController', function($http, $s
 	var Situacao = $resource('/configuracao/situacao/:id');
 	var Operacao = $resource('/configuracao/operacao/:id');
 
-	
+
 	function buscaSituacoes(){
 
 		Situacao.query(
@@ -17,6 +17,22 @@ angular.module('cartic').controller('ConfiguracaoController', function($http, $s
 			});
 	};
 
+	//function para remover uma situação
+	$scope.removeSituation = function(situation){
+
+		var confirmar = confirm("Tem certeza que deseja remover esta situação.");
+
+		if(confirmar == true){
+			Situacao.delete({id: situation._id},
+				buscaSituacoes,
+				function(erro){
+					console.log("Não foi possível remover a situação.");
+					console.log(erro);
+				});
+		}
+		console.log(situation);
+	};
+
 
 	//lotacaoId ainda nao existe para ir para algum tipo de pagina de edição com o ID
 	function verificaSituacaoId(){
@@ -26,7 +42,7 @@ angular.module('cartic').controller('ConfiguracaoController', function($http, $s
 			Situacao.get({id: $routeParams.situacaoId},
 			function(eqpt){
 				$scope.eqpt = eqpt;
-				
+
 			},
 			function(erro){
 				console.log(erro);
@@ -57,7 +73,7 @@ angular.module('cartic').controller('ConfiguracaoController', function($http, $s
 
 	};
 
-	
+
 	function buscaLotacoes(){
 
 		Lotacao.query(
@@ -80,7 +96,7 @@ angular.module('cartic').controller('ConfiguracaoController', function($http, $s
 			Lotacao.get({id: $routeParams.lotacaoId},
 			function(lotacao){
 				$scope.lotacao = lotacao;
-				
+
 			},
 			function(erro){
 				console.log(erro);
@@ -97,7 +113,7 @@ angular.module('cartic').controller('ConfiguracaoController', function($http, $s
 
 
 	$scope.salvaLotacao = function(){
-			
+
 			$scope.lotacao.$save()
 			.then(function(){
 				console.log("lot salvo "+ $scope.lotacao.teste);
@@ -107,7 +123,7 @@ angular.module('cartic').controller('ConfiguracaoController', function($http, $s
 			.catch(function(erro){
 				console.log("não foi possivel salvar o memorando "+ erro);
 			});
-					
+
 	};
 
 	function buscaOperacao(){
@@ -133,7 +149,7 @@ angular.module('cartic').controller('ConfiguracaoController', function($http, $s
 			Operacao.get({id: $routeParams.operacaoId},
 			function(opr){
 				$scope.opr = opr;
-				
+
 			},
 			function(erro){
 				console.log(erro);
