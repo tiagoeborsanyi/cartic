@@ -156,7 +156,7 @@ angular.module('cartic').controller('ConfiguracaoController', function($http, $s
 
 	buscaOperacao();
 
-	$scope.removeOperation = funtion(operation){
+	$scope.removeOperation = function(operation){
 
 		var confirmar = confirm("Tem certeza que deseja remover esta situação.");
 

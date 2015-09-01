@@ -13,6 +13,9 @@ module.exports = function(app){
 	app.route('/equipamento/situacao')
 			.get(varificaAutenticacao, controller.situacao); 
 
+	app.route('/equipamento/operacao')
+			.get(varificaAutenticacao, controller.operacao);
+
 	app.route('/equipamento')
 		.get(varificaAutenticacao, controller.listaEquipamentos)
 		.post(varificaAutenticacao, controller.salvaEquipamento);	

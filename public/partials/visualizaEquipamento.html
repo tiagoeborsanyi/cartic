@@ -2,9 +2,9 @@
 				<h2 class="centro">Relatórios - Equipamentos</h2>
 
 
-				
 
-				<!-- 
+
+				<!--
 				FORM DO MEMORANDO PARA TESTE
 			-->
 			<div class="tab-relatorio">
@@ -42,7 +42,7 @@
 						</tr>
 					</table>
 				</div>
-				
+
 
 
 
@@ -70,13 +70,13 @@
 						<div class="control-goup">
 							<label for="" class="control-label">Data Inicio</label>
 							<div class="controls"><input class="input-medium" type="date" id="" disabled></div>
-						</div>						
+						</div>
 					</div>
 
 					<div class="control-group">
 					</div>
-					
-					
+
+
 					<div class="controls controls-row">
 						<div class="control-goup">
 								<label for="" class="control-label">Data Fim</label>
@@ -92,7 +92,7 @@
 					</div>
 				</form>
 			</div>
-			
+
 			<br>
 			<div class="table-responsive">
 					<table class="table table-hover">
@@ -112,8 +112,8 @@
 						</tr>
 					</table>
 				</div>
-				
-				
+
+
 				</div>
 				<div class="tab-pane" id="locais">
 					<div class="span11 memorando">
@@ -137,13 +137,13 @@
 						<div class="control-goup">
 							<label for="" class="control-label">Data Inicio</label>
 							<div class="controls"><input class="input-medium" type="date" id="" disabled></div>
-						</div>						
+						</div>
 					</div>
 
 					<div class="control-group">
 					</div>
-					
-					
+
+
 					<div class="controls controls-row">
 						<div class="control-goup">
 								<label for="" class="control-label">Data Fim</label>
@@ -191,7 +191,7 @@
 						<div class="control-goup span4">
 							<label for="" class="control-label">Tipo de Operação: </label>
 							<div class="controls">
-								<select ng-model="eqpt.operacao" ng-options="opr.operacao for opr in operacoes">
+								<select ng-model="eqpto.operacao" ng-options="opr.operacao for opr in operacoes">
 								<option value="">--Escolha uma Operação--</option>
 							</select>
 							</div>
@@ -205,13 +205,13 @@
 						<div class="control-goup">
 							<label for="" class="control-label">Data Inicio</label>
 							<div class="controls"><input class="input-medium" type="date" id=""></div>
-						</div>						
+						</div>
 					</div>
 
 					<div class="control-group">
 					</div>
-					
-					
+
+
 					<div class="controls controls-row">
 						<div class="control-goup">
 								<label for="" class="control-label">Data Fim</label>
@@ -238,7 +238,7 @@
 							<th>Data</th>
 						</tr>
 						<tr ng-repeat="operacao in opr">
-							<td></td>
+							<td>{{$index+1}}</td>
 							<td>{{operacao._id}}</td>
 							<td>{{operacao.descricao}}</td>
 							<td>{{operacao.ultimaData}}</td>
@@ -252,6 +252,6 @@
 
 
 	</div>
-					
+
 
 </div>

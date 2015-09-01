@@ -136,7 +136,7 @@ module.exports = function(app){
 			    }
 		  ], function(err, result){
 		  	if(err){
-		  		console.log("ERRO SITUACAO "+err);
+		  		console.log("ERRO OEPRACAO "+err);
 		  		return;
 		  	}
 		  		
