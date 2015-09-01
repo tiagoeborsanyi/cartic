@@ -105,14 +105,14 @@ module.exports = function(app){
 			        situacao: {$last: "$situacao"},
 			        ultimaData: {$last: "$data"},
 			        descricao: {$last: "$descricao"}}
-			        
+
 			    }
 		  ], function(err, result){
 		  	if(err){
 		  		console.log("ERRO SITUACAO "+err);
 		  		return;
 		  	}
-		  		
+
 
 		  	//console.log("retur equipamento: "+result);
 		  	res.json(result);
@@ -132,14 +132,14 @@ module.exports = function(app){
 			        assunto: {$last: "$assunto"},
 			        ultimaData: {$last: "$data"},
 			        descricao: {$last: "$descricao"}}
-			        
+
 			    }
 		  ], function(err, result){
 		  	if(err){
 		  		console.log("ERRO OEPRACAO "+err);
 		  		return;
 		  	}
-		  		
+
 
 		  	//console.log("retur equipamento: "+result);
 		  	res.json(result);
@@ -148,10 +148,21 @@ module.exports = function(app){
 
 	};
 
+	//A transação é para listar o histórico de uma determinada lotação
+	//o menu esta localizado em relatórios -> equipamentos
 	controller.transacao = function(req, res){
 
-
+		Equipamento.find().sort( {data: -1} ).exec()
+			.then(
+				function(equipamentos){
+					res.json(equipamentos);
+				},
+				function(erro){
+					console.error(erro);
+					res.status(500).json(erro);
+			});
 	};
+
 
 	return controller;
 

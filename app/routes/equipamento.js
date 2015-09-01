@@ -11,14 +11,17 @@ module.exports = function(app){
 	var controller = app.controllers.equipamento;
 
 	app.route('/equipamento/situacao')
-			.get(varificaAutenticacao, controller.situacao); 
+			.get(varificaAutenticacao, controller.situacao);
 
 	app.route('/equipamento/operacao')
 			.get(varificaAutenticacao, controller.operacao);
 
+	app.route('/equipamento/transacao')
+			.get(varificaAutenticacao, controller.transacao);
+
 	app.route('/equipamento')
 		.get(varificaAutenticacao, controller.listaEquipamentos)
-		.post(varificaAutenticacao, controller.salvaEquipamento);	
+		.post(varificaAutenticacao, controller.salvaEquipamento);
 
 
 
@@ -28,5 +31,5 @@ module.exports = function(app){
 			.delete(varificaAutenticacao, controller.removeEquipamento);
 
 
-	
+
 };
