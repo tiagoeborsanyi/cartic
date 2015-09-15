@@ -125,14 +125,14 @@
 		h5, .imprime-fonte{
 			font-weight: normal;
 			font-size: 90%;
-			font-family: Georgia;
+			font-family: Arial;
 			line-height: 96%;
 
 		}
 
 		.imprime-paragrafo{
 			line-height: 96%;
-			font-family: Georgia;
+			font-family: Arial;
 		}
 
 		

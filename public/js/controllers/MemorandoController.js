@@ -33,14 +33,45 @@ angular.module('cartic').controller('MemorandoController', function($scope, $htt
 					console.log(id);
 				});
 		}
-		
+
 	};
 
+
+	function selecionaOperacao(){
+
+		$http.get('/configuracao/operacao').success(function(operacaolista){
+
+			$scope.operacoes = operacaolista;
+
+		},
+		function(erro){
+			console.log(erro);
+			console.log('não foi possível obter o equipamento');
+		});
+	};
+
+	function selecionaSituacao(){
+
+		$http.get('/configuracao/situacao').success(function(situacaolista){
+
+			$scope.situacoes = situacaolista;
+
+		},
+		function(erro){
+			console.log(erro);
+			console.log('não foi possível obter o equipamento');
+		});
+	};
+
+	selecionaSituacao();
+	selecionaOperacao();
 
 	var id = 0;
 	$scope.adicionalinha = function(){
 
-			
+
+
+
 			$http.get('/inicio/'+$routeParams.id).success(
 				function(memorando){
 					console.log("memorando tamanho "+memorando.tabela.length);
@@ -49,38 +80,53 @@ angular.module('cartic').controller('MemorandoController', function($scope, $htt
 				function(erro){
 					console.log('não foi possível obter o tamanho do array')
 				});
-			
-	
+
+
+
 
 	$("#btn-adiciona").on('click', function(event){
 
-		
 
 		event.preventDefault();
-		
-		
-		var tdConteudo = '<td><input type="text" id="t'+id+'" placeholder="Tombo" required ng-model="memorando.tabela.tombo"></td>'+
-						'<td><input type="text" id="d'+id+'" placeholder="Descrição" required ng-model="memorando.tabela.descricao"></td>'+
-						'<td><input type="text" id="l'+id+'" placeholder="Local" required ng-model="memorando.tabela.local"></td>'+
-						'<td><input type="text" id="s'+id+'" placeholder="Situação" required ng-model="memorando.tabela.situacao"></td>'+
+
+
+
+		var tdConteudo = '<td><input type="text" id="t'+id+'" placeholder="Tombo" class="input-small" required ng-model="memorando.tabela.tombo"></td>'+
+						'<td><input type="text" id="d'+id+'" placeholder="Descrição" class="input-medium" required ng-model="memorando.tabela.descricao"></td>'+
+						'<td><input type="text" id="l'+id+'" placeholder="Local" class="input-xlarge" required ng-model="memorando.tabela.local"></td>'+
+						'<td>'+
+							'<select id="s'+id+'" required ng-model="memorando.tabela.situacao">'+
+								'<option value="ETANA">EM TRÂNSITO ANÁLISE</option>'+
+								'<option value="ETREV">EM TRÂNSITO REVISÃO </option>'+
+								'<option value="ETBFORN">EM TRÂNSITO BOM PARA FORNECER</option>'+
+								'<option value="ETMANUT">EM TRÂNSITO PARA MANUTENÇÃO</option>'+
+								'<option value="ETCEXT">EM TRÂNSITO CHAMADO EXTERNO</option>'+
+								'<option value="ETPRBX">EM TRÂNSITO PROCESSO DE BAIXA</option>'+
+								'<option value="ETBXDEF">EM TRÂNSITO BAIXA DEFINITIVA</option>'+
+								'<option value="DEVPEN">DEVOLUÇÃO PENDENTE</option>'+
+								'<option value="PEND">PENDENTE</option>'+
+								'<option value="MANUT">MANUTENÇÃO</option>'+
+								'<option value="MANUT">Fornecido</option>'+
+							'</select>'+
+						'</td>'+
 						'<td><a id="'+id+'" class="remove-item" href=""><i class="icon-remove"></i></a></td>';
 
-						//console.log(tdConteudo);
+
 						++id;
-						console.log(id)
+
 
 		$('<tr>').append(tdConteudo).appendTo('#tabela-body');
 
-		
-		
-	});
+
+		});
 
 
 	};
 
+
 	$scope.removelinha = function(event){
 
-	
+
 		$("#tabela").on('click', '.remove-item', function(event){
 
 			event.preventDefault();
@@ -89,7 +135,7 @@ angular.module('cartic').controller('MemorandoController', function($scope, $htt
 			id--;
 			console.log(this);
 		});
-		
+
 	};
 
 
@@ -98,12 +144,66 @@ angular.module('cartic').controller('MemorandoController', function($scope, $htt
 $scope.adicionalinha();
 $scope.removelinha();
 
+	//funcção para fomatar a data
+	function formataData(recebeData) {
+		var dia = recebeData.slice(8, 10);
+		var ano = recebeData.slice(0, 4);
+		var mes = recebeData.slice(5, 7);
+		var m;
+
+		switch(parseInt(mes)) {
+			case 01:
+				m = "Janeiro";
+				break;
+			case 02:
+				m = "Fevereiro";
+				break;
+			case 03:
+				m = "Março";
+				break;
+			case 04:
+				m = "Abril";
+				break;
+			case 05:
+				m = "Maio";
+				break;
+			case 06:
+				m = "Junho";
+				break;
+			case 07:
+				m = "Julho";
+				break;
+			case 08:
+				m = "Agosto";
+				break;
+			case 09:
+				m = "Setembro";
+				break;
+			case 10:
+				m = "Outubro";
+				break;
+			case 11:
+				m = "Novembro";
+				break;
+			case 12:
+				m = "Dezembro";
+				break;
+			default:
+				m = "TESTE";
+		}
+
+		return dia + " " + m + " " + ano;
+
+	};
+
 
 	//Função para quando clicar no botão de editar ir para a pagina de edição do memorando
 	if($routeParams.id){
 		Memorando.get({id: $routeParams.id},
 		function(memorando){
 			$scope.memorando = memorando;
+
+			$scope.diamesano = formataData(memorando.data);
 		},
 		function(erro){
 			console.log(erro);
@@ -125,7 +225,7 @@ $scope.removelinha();
 				console.log('não foi possível obter o memorando')
 			});
 	};
-	
+
 
 	//Criamos uma function para salvar um memorando que ainda nao exista no banco de dados
 	$scope.salva = function(){
@@ -134,18 +234,18 @@ $scope.removelinha();
 		var t;
 		$scope.memorando.tabela = new Array();
 		for(var i = 0; i < id; i++){
-			
+
 			t = new Object();
 			t.tombo = $("#t"+i).val();
 			t.descricao = $("#d"+i).val();
 			t.local = $("#l"+i).val();
-			t.situacao = $("#s"+i).val();
+			t.situacao = $("#s"+i+" option:selected").text();
 			$scope.memorando.tabela.push(t);
 		}
 
 		$scope.memorando.lotacaosaida = $("#provider-json-1").val();
 		$scope.memorando.lotacaodestino = $("#provider-json-2").val();
-		//console.log("SAIDA tabela: "+ $("#provider-json-1").val());
+		$scope.memorando.assunto = $("#valoroperacao option:selected").text();
 		$scope.memorando.$save()
 				.then(function(){
 					console.log("salvo com sucesso.");
@@ -179,7 +279,8 @@ $scope.removelinha();
 	function(erro){
 		console.log(erro);
 	});
-	
+
+
 
 });
 

@@ -148,8 +148,11 @@ module.exports = function(app){
 
 	};
 
-	//A transação é para listar o histórico de uma determinada lotação
-	//o menu esta localizado em relatórios -> equipamentos
+	/*
+	A transação é para listar o histórico de uma determinada lotação
+	o menu esta localizado em relatórios -> equipamentos
+	a parte de pesquisa será feita no controller do angular
+	*/
 	controller.transacao = function(req, res){
 
 		Equipamento.find().sort( {data: -1} ).exec()

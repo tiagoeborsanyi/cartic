@@ -5,25 +5,32 @@
 <div class="span11 memorando">
 			<form class="form-horizontal" ng-submit="salva()">
 		<div class="controls controls-row">
-				<div class="control-goup span4">
+				<div class="control-goup span8">
 					<label for="lotacaoSaida" class="control-label lot">Lotação de saída</label>
-					<div class="controls"><input class="input-medium" type="text" id="provider-json-1" required ng-model="memorando.lotacaosaida"></div>
+					<div class="controls"><input class="input-xxlarge" type="text" id="provider-json-1" required ng-model="memorando.lotacaosaida"></div>
 				</div>
-				<div class="control-goup span4">
-					<label for="lotacaoDestino" class="control-label lot">Lotação de destino</label>
-					<div class="controls"><input class="input-medium" type="text" id="provider-json-2" required ng-model="memorando.lotacaodestino"></div>
-				</div>
+		</div>
+		<br>
+		<div class="controls controls-row">
+			<div class="control-group span8">
+				<label for="lotacaoDestino" class="control-label lot">Lotação de destino</label>
+					<div class="controls"><input class="input-xxlarge" type="text" id="provider-json-2" required ng-model="memorando.lotacaodestino"></div>
+			</div>
 		</div>
 				<div class="control-group">
 				</div>
 		<div class="controls controls-row">
 				<div class="control-group span4">
 					<label for="" class="control-label">Nº memorando</label>
-					<div class="controls"><input class="input-medium" type="text" id="" required ng-model="memorando.numeromemorando"></div>
+					<div class="controls"><input class="input-small" type="text" id="" required ng-model="memorando.numeromemorando"></div>
 				</div>
 				<div class="control-group span4">
-					<label for="" class="control-label">Assunto</label>
-					<div class="controls"><input class="input-medium" type="text" id="" required ng-model="memorando.assunto"></div>
+					<label for="" class="control-label" style="width: 100px;">Assunto</label>
+					<div class="controls">
+						<select id="valoroperacao" ng-model="memorando.assunto" ng-options="memorandotabela.operacao as memorandotabela.operacao for memorandotabela in operacoes">
+								<option value="">--Escolha uma Operação--</option>
+						</select>
+					</div>
 				</div>
 		</div>
 				<div class="control-group">
@@ -41,15 +48,23 @@
 					</thead>
 					<tbody id="tabela-body">
 					<tr ng-repeat="tabela in memorando.tabela" ng-hide="tabela.length">
-						<td><input type="text" id="t{{$index}}" placeholder="Tombo" required ng-model="tabela.tombo"></td>
-						<td><input type="text" id="d{{$index}}" placeholder="Descrição" required ng-model="tabela.descricao"></td>
-						<td><input type="text" id="l{{$index}}" placeholder="Local" required ng-model="tabela.local"></td>
-						<td><input type="text" id="s{{$index}}" placeholder="Situação" required ng-model="tabela.situacao"></td>
+						<td><input type="text" id="t{{$index}}" placeholder="Tombo" class="input-small" required ng-model="tabela.tombo"></td>
+						<td><input type="text" id="d{{$index}}" placeholder="Descrição" class="input-medium" required ng-model="tabela.descricao"></td>
+						<td><input type="text" id="l{{$index}}" placeholder="Local" class="input-xlarge" required ng-model="tabela.local"></td>
+						<td><!--input type="text" id="s{{$index}}" placeholder="Situação" required ng-model="tabela.situacao"-->
+							<select
+								id="s{{$index}}"
+								required
+								ng-model="tabela.situacao"
+								ng-options="tabela.situacao as tabela.situacao for tabela in situacoes">
+							</select>
+
+						</td>
 						<!--td><a id="" class="remove-item" ng-click="removeItem(tabela)"><i class="icon-remove"></i></a></td-->
 					</tr>
 					</tbody>
 				</table>
-				<p><button type="button" id="btn-adiciona" class="btn" ng-click="adicionalinha">Adicionar</button></p>
+				<p><button type="button" id="btn-adiciona" class="btn" ng-click="adicionalinha; selecionaSituacao;">Adicionar</button></p>
 				<br>
 				<div class="controls controls-row">
 				<div class="control-group span4">

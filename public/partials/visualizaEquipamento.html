@@ -123,7 +123,7 @@
 						<div class="control-goup span4">
 							<label for="" class="control-label">Lotação: </label>
 							<div class="controls">
-								<select ng-model="eqpt.situacao" ng-options="lot.teste for lot in lotacoes">
+								<select ng-model="lot.lotacao" ng-options="lot.teste for lot in lotacoes">
 									<option value="">--Escolha uma situação--</option>
 								</select>
 							</div>
@@ -168,12 +168,14 @@
 							<th>Tombo</th>
 							<th>Descrição</th>
 							<th>Data</th>
+							<th>Status</th>
 						</tr>
 						<tr ng-repeat="transacao in trans">
-							<td></td>
-							<td>{{transacao._id}}</td>
+							<td>{{$index+1}}</td>
+							<td>{{transacao.tombo}}</td>
 							<td>{{transacao.descricao}}</td>
-							<td>{{transacao.ultimaData}}</td>
+							<td>{{transacao.data}}</td>
+							<td>{{transacao.lotacaosaida == status ? "Saida" : "Entrada"}}</td>
 						</tr>
 					</table>
 				</div>
@@ -204,7 +206,7 @@
 					<div class="controls controls-row">
 						<div class="control-goup">
 							<label for="" class="control-label">Data Inicio</label>
-							<div class="controls"><input class="input-medium" type="date" id=""></div>
+							<div class="controls"><input class="input-medium" type="date" id="" disabled></div>
 						</div>
 					</div>
 
@@ -215,7 +217,7 @@
 					<div class="controls controls-row">
 						<div class="control-goup">
 								<label for="" class="control-label">Data Fim</label>
-								<div class="controls"><input class="input-medium" type="date"  id=""></div>
+								<div class="controls"><input class="input-medium" type="date"  id="" disabled></div>
 						</div>
 					</div>
 

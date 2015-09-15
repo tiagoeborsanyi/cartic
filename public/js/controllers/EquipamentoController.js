@@ -133,6 +133,27 @@ angular.module('cartic').controller('EquipamentoController', function($http, $sc
 	//function para fazer relatório histórico da lotacao que esta na pagina de relatórios-equipamentos
 	$scope.transacao = function(){
 
+		$http.get('/equipamento/transacao').success(function(transacao){
+
+			var b = [];
+
+			$scope.status = $scope.lot.lotacao.teste;
+
+			for(var i = 0; i < transacao.length; i++){
+
+				if(($scope.lot.lotacao.teste == transacao[i]['lotacaosaida']) || ($scope.lot.lotacao.teste == transacao[i]['lotacaodestino'])){
+
+					b.push(transacao[i]);
+				}
+			}
+
+			$scope.trans= b;
+		},
+		function(erro){
+			console.log(erro);
+			console.log('não foi possível obter o histórico da lotação');
+		});
+
 	};
 
 	function selecionaSituacao(){
