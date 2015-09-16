@@ -15,25 +15,24 @@
 					<br><br>
 
 					<div>
-						<p class="imprime-paragrafo"><strong>De: </strong>{{memorando.lotacaosaida}}</p>
+						<p class="titulo-imprime"><strong>De: </strong>{{memorando.lotacaosaida}}</p>
 
-						<p class="imprime-paragrafo"><strong>Para: </strong>{{memorando.lotacaodestino}}</p>
+						<p class="titulo-imprime"><strong>Para: </strong>{{memorando.lotacaodestino}}</p>
 					</div>
 
 
-					<br>
+					
 					<p class="titulo-imprime">
 						<strong >Termo de Responsabilidade de Transferência de Equipamentos de TIC</strong> - Cartic nº  {{memorando.numeromemorando}} / {{2015}}
 					</p>
 
 
-
-					<p class="data-imprime">Em {{ diamesano }}</p><br><br><br>
+					<p class="data-imprime">Em {{ diamesano }}</p><br><br>
 
 					<p><strong>Assunto: </strong>{{memorando.assunto}}</p>
 
 					<table id="tabela" class="table table-bordered tabela">
-					<thead>
+					<thead class="lista-tabela-imprime">
 						<tr>
 						<th class="centralizado">Nr. Tombo</th>
 						<th class="centralizado">Descrição</th>
@@ -41,7 +40,7 @@
 						</tr>
 					</thead>
 					<tbody id="tabela-body">
-					<tr ng-repeat="tabela in memorando.tabela">
+					<tr ng-repeat="tabela in memorando.tabela" class="lista-tabela-imprime">
 						<td>{{tabela.tombo}}</td>
 						<td>{{tabela.descricao}}</td>
 						<td>{{tabela.local}}</td>
@@ -49,18 +48,18 @@
 					</tbody>
 				</table>
 
-				<p class="imprime-paragrafo"><strong>Obs.:</strong> {{memorando.observacao}}</p>
-				<br>
+				<p class="lista-tabela-imprime"><strong>Obs.:</strong> {{memorando.observacao}}</p>
+				
 
 				<div class="lista-tabela-imprime">
-					1 - Operações com Equipamentos de TIC (inclusive Conserto, Pedido, Devolução) - Obrigatórios:
+					1 - Operações com Equipamentos de TIC (inclusive Pedido. Conserto, Devolução) - Obrigatórios:
 					<ul>
 						<li> Abertura de chamado</li>
-						<li> Termo de responsabilidade de Tranferência de Equipamentos de TIC, contendo Nr. de Tombo</li>
+						<li> Termo de responsabilidade de Transferência de Equipamentos de TIC, contendo Nr. de Tombo</li>
 					</ul>
-					2 - Identifique o(s) equipamentos a ser escolhido(s) com papel, de forma visível, e informe outros servidores (caso de ausência do solicitante no momento da entrega/coleta).
+					2 - Identificar o(s) equipamentos a ser recolhido(s) com papel, de forma visível, e informe outros servidores (caso de ausência do solicitante no momento da entrega/coleta).
 					<br><br>
-					3 - Receber/devolver o(s) equipamento(s):
+					3 - Ao Receber/devolver o(s) equipamento(s):
 					<ul>
 						<li>I. Conferir o(s) tombo(s) do Termo de Responsabilidade</li>
 						<li>1º Via - Arquivar na própria lotação para controle do Inventário de Equipamentos de TIC</li>
@@ -74,7 +73,7 @@
 				<br>
 
 				<h5>___________________________</h5>
-				<h5 class="imprime-assinatura">Diretor ou responsável pelo entrega/recebimento equipamentos</h5>
+				<h5 class="imprime-assinatura">Diretor ou responsável pelo recebimento/devolução de equipamentos à CARTIC</h5>
 				<h5 class="imprime-assinatura">Nome completo e assinatura</h5>
 
 

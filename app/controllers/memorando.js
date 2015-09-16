@@ -19,7 +19,7 @@ module.exports = function(app){
 
 	controller.listaMemorandos = function(req, res){
 
-		Memorando.find().populate('usuario').exec()
+		Memorando.find().sort({data : -1}).populate('usuario').exec()
 			.then(
 				function(memorandos){
 					res.json(memorandos);
