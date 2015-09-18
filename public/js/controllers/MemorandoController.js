@@ -96,17 +96,18 @@ angular.module('cartic').controller('MemorandoController', function($scope, $htt
 						'<td><input type="text" id="l'+id+'" placeholder="Local" class="input-xlarge" required ng-model="memorando.tabela.local"></td>'+
 						'<td>'+
 							'<select id="s'+id+'" required ng-model="memorando.tabela.situacao">'+
-								'<option value="ETANA">EM TRÂNSITO ANÁLISE</option>'+
-								'<option value="ETREV">EM TRÂNSITO REVISÃO </option>'+
-								'<option value="ETBFORN">EM TRÂNSITO BOM PARA FORNECER</option>'+
-								'<option value="ETMANUT">EM TRÂNSITO PARA MANUTENÇÃO</option>'+
-								'<option value="ETCEXT">EM TRÂNSITO CHAMADO EXTERNO</option>'+
-								'<option value="ETPRBX">EM TRÂNSITO PROCESSO DE BAIXA</option>'+
-								'<option value="ETBXDEF">EM TRÂNSITO BAIXA DEFINITIVA</option>'+
-								'<option value="DEVPEN">DEVOLUÇÃO PENDENTE</option>'+
-								'<option value="PEND">PENDENTE</option>'+
-								'<option value="MANUT">MANUTENÇÃO</option>'+
+								'<option value="ETANA">Em Trânsito - Para Análise</option>'+
+								'<option value="ETREV">Em Trânsito - Revisão</option>'+
+								'<option value="ETBFORN">Em Trânsito - Bom para Fornecer</option>'+
+								'<option value="ETMANUT">Em Trânsito - Manutenção</option>'+
+								'<option value="ETCEXT">Em Trânsito - Chamado Externo</option>'+
+								'<option value="ETPRBX">Em Trânsito - Em Processo de Baixa</option>'+
+								'<option value="ETBXDEF">Em Trânsito - Baixa Definitiva</option>'+
+								'<option value="PEND">Pendente</option>'+
+								'<option value="MANUT">Manutenção</option>'+
 								'<option value="MANUT">Fornecido</option>'+
+								'<option value="DEVPEND">Devolução Pendente</option>'+
+								'<option value="DEVMANU">Devolvido Após Manutenção</option>'+
 							'</select>'+
 						'</td>'+
 						'<td><a id="'+id+'" class="remove-item" href=""><i class="icon-remove"></i></a></td>';
