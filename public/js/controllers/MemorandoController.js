@@ -21,6 +21,12 @@ angular.module('cartic').controller('MemorandoController', function($scope, $htt
 
 	buscaMemorandos();
 
+	$scope.myPagingInfinite = function() {
+
+		console.log('tamanho biscamemorandos: '+buscaMemorandos.length);
+
+	};
+
 	$scope.remove = function(memorando){
 
 		var confirmar = confirm("Tem certeza que deseja remover o memorando.");
