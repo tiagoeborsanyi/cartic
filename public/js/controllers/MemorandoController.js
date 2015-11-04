@@ -76,6 +76,8 @@ angular.module('cartic').controller('MemorandoController', function($scope, $htt
 
 		if($scope.memorando.tabela === undefined || $scope.memorando.tabela === null){
 			$scope.memorando.tabela = [];
+			$scope.selecionalotacao = [{teste: 'Em Transito'}, {teste: $("#provider-json-2").val()}];
+			console.log($("#provider-json-2").val());
 		}
 
 		console.log($scope.memorando.tabela);
@@ -86,8 +88,6 @@ angular.module('cartic').controller('MemorandoController', function($scope, $htt
 	$scope.removeItem = function(i) {
 		$scope.memorando.tabela.splice(i, 1);
 	};
-
-
 
 	//funcção para fomatar a data
 	function formataData(recebeData) {
@@ -136,11 +136,8 @@ angular.module('cartic').controller('MemorandoController', function($scope, $htt
 			default:
 				m = "TESTE";
 		}
-
 		return dia + " " + m + " " + ano;
-
 	};
-
 
 	//Função para quando clicar no botão de editar ir para a pagina de edição do memorando
 	if($routeParams.id){
@@ -159,29 +156,24 @@ angular.module('cartic').controller('MemorandoController', function($scope, $htt
 		$scope.memorando = new Memorando();
 	}
 
-
 	//Criamos uma function para salvar um memorando que ainda nao exista no banco de dados
 	$scope.salva = function(){
 
-
-		/*var t;
-		$scope.memorando.tabela = new Array();
-		for(var i = 0; i < id; i++){
-
-			t = new Object();
-			t.tombo = $("#t"+i).val();
-			t.descricao = $("#d"+i).val();
-			t.local = $("#l"+i).val();
-			t.situacao = $("#s"+i+" option:selected").text();
-			$scope.memorando.tabela.push(t);
-		}*/
+		if($scope.memorando.tabela !== undefined){
+			$scope.memorando.tabelas = new Array();
+			var t = $scope.memorando.tabela.length;
+			for(var i = 0; i < t; i++){
+				$scope.memorando.tabelas.push($scope.memorando.tabela[i]);
+			}
+			console.log($scope.memorando.tabelas);
+		}
 
 		$scope.memorando.lotacaosaida = $("#provider-json-1").val();
 		$scope.memorando.lotacaodestino = $("#provider-json-2").val();
 		$scope.memorando.assunto = $("#valoroperacao option:selected").text();
 		$scope.memorando.$save()
 				.then(function(){
-					console.log("salvo com sucesso.");
+					$scope.mensagem = "Memorando salvo com sucesso.";
 					//limpa o form
 					$scope.memorando = new Memorando();
 					$('#tabela-body').html('');
@@ -208,8 +200,6 @@ angular.module('cartic').controller('MemorandoController', function($scope, $htt
 
 			$("#provider-json-1").easyAutocomplete(opt);
 			$("#provider-json-2").easyAutocomplete(opt);
-			console.log(opt);
-
 	},
 	function(erro){
 		console.log(erro);

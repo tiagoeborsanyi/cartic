@@ -2,6 +2,7 @@
 	Este form serve para fazer o cadastro de memorandos
 -->
 <br>
+<p class="text-success alert-success">{{mensagem}}</p>
 <div class="span11 memorando">
 			<form class="form-horizontal" ng-submit="salva()">
 		<div class="controls controls-row">
@@ -50,7 +51,14 @@
 					<tr ng-repeat="tabela in memorando.tabela track by $index" ng-hide="tabela.length">
 						<td><input type="text" placeholder="Tombo" class="input-small" required ng-model="tabela.tombo"></td>
 						<td><input type="text" placeholder="Descrição" class="input-medium" required ng-model="tabela.descricao"></td>
-						<td><input class="input-xlarge" type="text" id="provider-json-3" required ng-model="tabela.local"></td>
+						<td><!--input class="input-xlarge" type="text" id="provider-json-3" required ng-model="tabela.local"-->
+							<select
+								required
+								ng-model="tabela.local"
+								ng-options="tabela.teste as tabela.teste for tabela in selecionalotacao">
+
+							</select>
+						</td>
 						<td>
 							<select
 								required
