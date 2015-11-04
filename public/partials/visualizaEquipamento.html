@@ -168,14 +168,14 @@
 							<th>Tombo</th>
 							<th>Descrição</th>
 							<th>Data</th>
-							<th>Status</th>
+							<th>Situação</th>
 						</tr>
 						<tr ng-repeat="transacao in trans">
 							<td>{{$index+1}}</td>
 							<td>{{transacao.tombo}}</td>
 							<td>{{transacao.descricao}}</td>
 							<td>{{transacao.data}}</td>
-							<td>{{transacao.lotacaosaida == status ? "Saida" : "Entrada"}}</td>
+							<td>{{transacao.situacao}}</td>
 						</tr>
 					</table>
 				</div>
