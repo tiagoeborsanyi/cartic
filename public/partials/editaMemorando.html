@@ -51,12 +51,12 @@
 					<tr ng-repeat="tabela in memorando.tabela track by $index" ng-hide="tabela.length">
 						<td><input type="text" placeholder="Tombo" class="input-small" required ng-model="tabela.tombo"></td>
 						<td><input type="text" placeholder="Descrição" class="input-medium" required ng-model="tabela.descricao"></td>
-						<td><!--input class="input-xlarge" type="text" id="provider-json-3" required ng-model="tabela.local"-->
+						<td>
 							<select
 								required
 								ng-model="tabela.local"
 								ng-options="tabela.teste as tabela.teste for tabela in selecionalotacao">
-
+									<option value="">--Escolha um Local--</option>
 							</select>
 						</td>
 						<td>
@@ -64,6 +64,7 @@
 								required
 								ng-model="tabela.situacao"
 								ng-options="tabela.situacao as tabela.situacao for tabela in situacoes">
+									<option value="">--Escolha uma Situação--</option>
 							</select>
 						</td>
 						<td><button class="btn-link remove-item" ng-click="removeItem($index)"><i class="icon-remove"></i></button></td>
