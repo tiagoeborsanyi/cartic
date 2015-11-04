@@ -65,6 +65,7 @@ angular.module('cartic').controller('ConfiguracaoController', function($http, $s
 				console.log("lot salvo "+ $scope.eqpt.teste);
 				//limpa o form
 				$scope.eqpt = new Situacao();
+				buscaSituacoes();
 			})
 			.catch(function(erro){
 				console.log("não foi possivel salvar a situação "+ erro);
@@ -134,6 +135,7 @@ angular.module('cartic').controller('ConfiguracaoController', function($http, $s
 				console.log("lot salvo "+ $scope.lotacao.teste);
 				//limpa o form
 				$scope.lotacao = new Lotacao();
+				buscaLotacoes();
 			})
 			.catch(function(erro){
 				console.log("não foi possivel salvar o memorando "+ erro);
@@ -201,6 +203,7 @@ angular.module('cartic').controller('ConfiguracaoController', function($http, $s
 				console.log("opr salvo ");
 				//limpa o form
 				$scope.opr = new Operacao();
+				buscaOperacao();
 			})
 			.catch(function(erro){
 				console.log("não foi possivel salvar a operação "+ erro);

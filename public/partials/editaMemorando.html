@@ -47,24 +47,22 @@
 						</tr>
 					</thead>
 					<tbody id="tabela-body">
-					<tr ng-repeat="tabela in memorando.tabela" ng-hide="tabela.length">
-						<td><input type="text" id="t{{$index}}" placeholder="Tombo" class="input-small" required ng-model="tabela.tombo"></td>
-						<td><input type="text" id="d{{$index}}" placeholder="Descrição" class="input-medium" required ng-model="tabela.descricao"></td>
-						<td><input type="text" id="l{{$index}}" placeholder="Local" class="input-xlarge" required ng-model="tabela.local"></td>
-						<td><!--input type="text" id="s{{$index}}" placeholder="Situação" required ng-model="tabela.situacao"-->
+					<tr ng-repeat="tabela in memorando.tabela track by $index" ng-hide="tabela.length">
+						<td><input type="text" placeholder="Tombo" class="input-small" required ng-model="tabela.tombo"></td>
+						<td><input type="text" placeholder="Descrição" class="input-medium" required ng-model="tabela.descricao"></td>
+						<td><input class="input-xlarge" type="text" id="provider-json-3" required ng-model="tabela.local"></td>
+						<td>
 							<select
-								id="s{{$index}}"
 								required
 								ng-model="tabela.situacao"
 								ng-options="tabela.situacao as tabela.situacao for tabela in situacoes">
 							</select>
-
 						</td>
-						<!--td><a id="" class="remove-item" ng-click="removeItem(tabela)"><i class="icon-remove"></i></a></td-->
+						<td><button class="btn-link remove-item" ng-click="removeItem($index)"><i class="icon-remove"></i></button></td>
 					</tr>
 					</tbody>
 				</table>
-				<p><button type="button" id="btn-adiciona" class="btn" ng-click="adicionalinha; selecionaSituacao;">Adicionar</button></p>
+				<p><button type="button" id="btn-adiciona" class="btn" ng-click="adicionaItem(tabela); selecionaSituacao;">Adicionar</button></p>
 				<br>
 				<div class="controls controls-row">
 				<div class="control-group span4">

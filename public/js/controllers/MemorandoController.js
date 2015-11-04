@@ -72,84 +72,22 @@ angular.module('cartic').controller('MemorandoController', function($scope, $htt
 	selecionaSituacao();
 	selecionaOperacao();
 
-	var id = 0;
-	$scope.adicionalinha = function(){
+	$scope.adicionaItem = function(a) {
 
+		if($scope.memorando.tabela === undefined || $scope.memorando.tabela === null){
+			$scope.memorando.tabela = [];
+		}
 
+		console.log($scope.memorando.tabela);
 
+		$scope.memorando.tabela.push({a});
+	};
 
-			$http.get('/inicio/'+$routeParams.id).success(
-				function(memorando){
-					console.log("memorando tamanho "+memorando.tabela.length);
-					id += memorando.tabela.length;
-				},
-				function(erro){
-					console.log('não foi possível obter o tamanho do array')
-				});
-
-
-
-
-	$("#btn-adiciona").on('click', function(event){
-
-
-		event.preventDefault();
-
-
-
-		var tdConteudo = '<td><input type="text" id="t'+id+'" placeholder="Tombo" class="input-small" required ng-model="memorando.tabela.tombo"></td>'+
-						'<td><input type="text" id="d'+id+'" placeholder="Descrição" class="input-medium" required ng-model="memorando.tabela.descricao"></td>'+
-						'<td><input type="text" id="l'+id+'" placeholder="Local" class="input-xlarge" required ng-model="memorando.tabela.local"></td>'+
-						'<td>'+
-							'<select id="s'+id+'" required ng-model="memorando.tabela.situacao">'+
-								'<option value="ETANA">Em Trânsito - Para Análise</option>'+
-								'<option value="ETREV">Em Trânsito - Revisão</option>'+
-								'<option value="ETBFORN">Em Trânsito - Bom para Fornecer</option>'+
-								'<option value="ETMANUT">Em Trânsito - Manutenção</option>'+
-								'<option value="ETCEXT">Em Trânsito - Chamado Externo</option>'+
-								'<option value="ETPRBX">Em Trânsito - Em Processo de Baixa</option>'+
-								'<option value="ETBXDEF">Em Trânsito - Baixa Definitiva</option>'+
-								'<option value="PEND">Pendente</option>'+
-								'<option value="MANUT">Manutenção</option>'+
-								'<option value="MANUT">Fornecido</option>'+
-								'<option value="DEVPEND">Devolução Pendente</option>'+
-								'<option value="DEVMANU">Devolvido Após Manutenção</option>'+
-							'</select>'+
-						'</td>'+
-						'<td><a id="'+id+'" class="remove-item" href=""><i class="icon-remove"></i></a></td>';
-
-
-						++id;
-
-
-		$('<tr>').append(tdConteudo).appendTo('#tabela-body');
-
-
-		});
-
-
+	$scope.removeItem = function(i) {
+		$scope.memorando.tabela.splice(i, 1);
 	};
 
 
-	$scope.removelinha = function(event){
-
-
-		$("#tabela").on('click', '.remove-item', function(event){
-
-			event.preventDefault();
-
-			$(this).closest("tr").remove();
-			id--;
-			console.log(this);
-		});
-
-	};
-
-
-
-
-$scope.adicionalinha();
-$scope.removelinha();
 
 	//funcção para fomatar a data
 	function formataData(recebeData) {
@@ -221,24 +159,12 @@ $scope.removelinha();
 		$scope.memorando = new Memorando();
 	}
 
-	//função para remover um item (equipamento especifico do memorando)
-	$scope.removeItem = function(tabela){
-		Memorando.get({id: $routeParams.id},
-			function(memorando){
-				$scope.memorando = memorando;
-			},
-			function(erro){
-				console.log(erro);
-				console.log('não foi possível obter o memorando')
-			});
-	};
-
 
 	//Criamos uma function para salvar um memorando que ainda nao exista no banco de dados
 	$scope.salva = function(){
 
 
-		var t;
+		/*var t;
 		$scope.memorando.tabela = new Array();
 		for(var i = 0; i < id; i++){
 
@@ -248,7 +174,7 @@ $scope.removelinha();
 			t.local = $("#l"+i).val();
 			t.situacao = $("#s"+i+" option:selected").text();
 			$scope.memorando.tabela.push(t);
-		}
+		}*/
 
 		$scope.memorando.lotacaosaida = $("#provider-json-1").val();
 		$scope.memorando.lotacaodestino = $("#provider-json-2").val();
@@ -282,14 +208,11 @@ $scope.removelinha();
 
 			$("#provider-json-1").easyAutocomplete(opt);
 			$("#provider-json-2").easyAutocomplete(opt);
+			console.log(opt);
+
 	},
 	function(erro){
 		console.log(erro);
 	});
 
-
-
 });
-
-
-//Esta dando erro na parte de match. Como resolve?
