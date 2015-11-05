@@ -173,7 +173,7 @@ angular.module('cartic').controller('MemorandoController', function($scope, $htt
 		$scope.memorando.assunto = $("#valoroperacao option:selected").text();
 		$scope.memorando.$save()
 				.then(function(){
-					$scope.mensagem = "Memorando salvo com sucesso.";
+					//$scope.mensagem = "Memorando salvo com sucesso.";
 					//limpa o form
 					$scope.memorando = new Memorando();
 					$('#tabela-body').html('');

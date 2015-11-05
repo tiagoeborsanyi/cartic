@@ -3,7 +3,7 @@
 -->
 <h2 class="centro">Últimos memorandos adicionados</h2>
 
-<div ng-repeat="memorando in memorandos | filter: global.search" infinite-scroll="myPagingInfinite()" infinite-scroll-distance="3" class="span11 memorando">
+<div ng-repeat="memorando in memorandos | filter: global.search" class="span11 memorando">
 			<form action="" class="form-lista form-horizontal">
 		<div style="margin-left: 10px;" class="controls controls-row">
 			<span style="float: left;">Data: {{memorando.data}}</span><a ng-click="remove(memorando)" class="btn-link"><i style="float: right;" class="icon-remove"></i></a><a ng-href="#/memorando/{{memorando._id}}"><i style="float: right; margin-right: 5px;" class="icon-pencil"></i></a>

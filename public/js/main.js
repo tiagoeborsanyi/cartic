@@ -1,4 +1,4 @@
-angular.module('cartic', ['ngRoute', 'ngResource', 'infinite-scroll']).config(function($routeProvider){
+angular.module('cartic', ['ngRoute', 'ngResource']).config(function($routeProvider){
 
 	$routeProvider.when('/inicio', {
 		templateUrl: '/partials/visualizaMemorando.html',
