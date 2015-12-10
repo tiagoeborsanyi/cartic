@@ -145,7 +145,7 @@ angular.module('cartic').controller('MemorandoController', function($scope, $htt
 		function(memorando){
 			$scope.memorando = memorando;
 			$scope.selecionalotacao = [{teste: 'Em Transito'}, {teste: $scope.memorando.lotacaodestino}];
-			//$scope.diamesano = formataData(memorando.data);
+			$scope.diamesano = formataData(memorando.data);
 		},
 		function(erro){
 			console.log(erro);
