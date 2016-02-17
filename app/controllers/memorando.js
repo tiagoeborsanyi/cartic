@@ -18,8 +18,9 @@ module.exports = function(app){
 
 
 	controller.listaMemorandos = function(req, res){
-
-		Memorando.find().sort({data : -1}).populate('usuario').exec()
+		console.log(req._parsedOriginalUrl.query);
+		var page = req._parsedOriginalUrl.query
+		Memorando.find().limit(4).skip(page * 4).sort({data : -1}).populate('usuario').exec()
 			.then(
 				function(memorandos){
 					res.json(memorandos);
