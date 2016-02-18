@@ -7,7 +7,7 @@ angular.module('cartic').controller('MemorandoController', function($scope, $htt
 		passando a rota via get de qual controller queremos do express
 	*/
 
-	function buscaMemorandos(){
+	/*function buscaMemorandos(){
 
 		Memorando.query(
 			function(memorandos){
@@ -19,13 +19,47 @@ angular.module('cartic').controller('MemorandoController', function($scope, $htt
 			});
 	}
 
-	buscaMemorandos();
+	buscaMemorandos();*/
 
-	$scope.myPagingInfinite = function() {
+	$http.get('/inicio?1').success(function(result) {
+		$scope.memorandos = result;
+	});
 
-		console.log('tamanho biscamemorandos: '+buscaMemorandos.length);
+	$(document).ready(function() {
+		var pagenum = 1;
+		function getresult(url){
+			$.ajax({
+				url: url,
+				type: "GET",
+				beforeSend: function() {
+						$('#loader-icon').show();
+				},
+				complete: function() {
+					$('#loader-icon').hide();
+				},
+				success: function(data) {
+					for(var i = 0; i < data.length; i++){
+						$scope.memorandos.push(data[i]);
+					}
+					$scope.$apply();
+				}
+			});
+					pagenum++;
+		}
 
-	};
+		$('#texto-busca').keypress(function(){
+			if($('#texto-busca').val() != ''){
+				getresult('/inicio?'+$('#texto-busca').val());
+			}
+		});
+
+		$(window).scroll(function(){
+			if ($(window).scrollTop() == $(document).height() - $(window).height()){
+				getresult('/inicio?'+pagenum);
+			}
+		});
+		pagenum++;
+	});
 
 	$scope.remove = function(memorando){
 

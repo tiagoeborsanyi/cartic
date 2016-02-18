@@ -3,7 +3,7 @@
 			padding: 5px;
 		}
 
-		
+
 
 		.popover-title, .popover-content {
 			background: #333;
@@ -111,7 +111,7 @@
 
 		.seis{
 			line-height: 40%;
-			
+
 		}
 
 		.imprime-assinatura{
@@ -135,4 +135,11 @@
 			font-family: Arial;
 		}
 
-		
+		#loader-icon {
+			position: relative;
+			top: 50%;
+			width: 100%;
+			height: 100%;
+			text-align: center;
+			display: none;
+		}

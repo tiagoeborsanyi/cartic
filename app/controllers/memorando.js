@@ -18,18 +18,23 @@ module.exports = function(app){
 
 
 	controller.listaMemorandos = function(req, res){
-		console.log(req._parsedOriginalUrl.query);
-		var page = req._parsedOriginalUrl.query
-		Memorando.find().limit(4).skip(page * 4).sort({data : -1}).populate('usuario').exec()
-			.then(
-				function(memorandos){
-					res.json(memorandos);
-				},
-				function(erro){
-					console.error(erro);
-					res.status(500).json(erro);
-				});
 
+		if(req._parsedOriginalUrl.query == 'texto'){
+			//ful-text
+			console.log(req._parsedOriginalUrl.query);
+		}else{
+			console.log(req._parsedOriginalUrl.query);
+			var page = req._parsedOriginalUrl.query
+			Memorando.find().limit(3).skip(page*3).sort({data : -1}).populate('usuario').exec()
+				.then(
+					function(memorandos){
+						res.json(memorandos);
+					},
+					function(erro){
+						console.error(erro);
+						res.status(500).json(erro);
+					});
+		}
 	};
 
 	controller.listaLotacoes = function(req, res){
