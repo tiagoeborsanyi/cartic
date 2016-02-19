@@ -3,6 +3,7 @@
 -->
 <h2 class="centro">Últimos memorandos adicionados</h2>
 
+<!--div infinite-scroll='nextPage()' infinite-scroll-distance='3' -->
 <div ng-repeat="memorando in memorandos | filter: global.search" class="span11 memorando">
 			<form action="" class="form-lista form-horizontal">
 		<div style="margin-left: 10px;" class="controls controls-row">
@@ -63,6 +64,7 @@
 				</div>
 			</form>
 		</div>
+		<!--/div>< final do ng-infiiniti scroll-->
 		<div id="loader-icon">
 			<img src="vendor/bootstrap/img/loading.gif" alt="" />
 		</div>

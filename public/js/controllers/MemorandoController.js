@@ -2,26 +2,14 @@ angular.module('cartic').controller('MemorandoController', function($scope, $htt
 
 	$scope.filtro = '';
 
+
 	/*
 		Estamos buscando os dados do servidor
 		passando a rota via get de qual controller queremos do express
 	*/
 
-	/*function buscaMemorandos(){
-
-		Memorando.query(
-			function(memorandos){
-				$scope.memorandos = memorandos;
-			},
-			function(erro){
-				console.log('Não foi possível obter a lista de memorandos.');
-				console.log(erro);
-			});
-	}
-
-	buscaMemorandos();*/
-
-	$http.get('/inicio?1').success(function(result) {
+	$http.get('/inicio?0').success(function(result) {
+		console.log("TESTETSE");
 		$scope.memorandos = result;
 	});
 
@@ -42,11 +30,12 @@ angular.module('cartic').controller('MemorandoController', function($scope, $htt
 						$scope.memorandos.push(data[i]);
 					}
 					$scope.$apply();
+						pagenum++;
+						console.log(pagenum);
 				}
 			});
-					pagenum++;
-		}
 
+		}
 		$('#texto-busca').keypress(function(){
 			if($('#texto-busca').val() != ''){
 				getresult('/inicio?'+$('#texto-busca').val());
@@ -58,15 +47,37 @@ angular.module('cartic').controller('MemorandoController', function($scope, $htt
 				getresult('/inicio?'+pagenum);
 			}
 		});
-		pagenum++;
+
 	});
+
+	/*var Contents = {
+		page: 0,
+		url: '/inicio?'+this.page,
+		mostrar: function(){
+			$http.get(this.url).success(function(data){
+			$scope.memorandos = data;
+		});
+			console.log(this.page++);
+			this.page++;
+		}
+	};
+
+	Contents.mostrar();*/
+
+
+
+
+
+
+
+
 
 	$scope.remove = function(memorando){
 
 		var confirmar = confirm("Tem certeza que deseja remover o memorando.");
 		if(confirmar == true){
 			Memorando.delete({id: memorando._id},
-				buscaMemorandos,
+			window.location.reload(),
 				function(erro){
 					console.log('Não foi possível remover a linha do memorandos.');
 					console.log(erro);

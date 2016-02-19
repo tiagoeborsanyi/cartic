@@ -71,6 +71,7 @@ module.exports = function(app){
 	controller.removeMemorando = function(req, res){
 
 		var _id = req.params.id;
+		console.log('ID: ', _id);
 		Memorando.remove({"_id" : _id}).exec()
 			.then(
 				function(){
