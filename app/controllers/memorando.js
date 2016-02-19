@@ -24,7 +24,7 @@ module.exports = function(app){
 			console.log(req._parsedOriginalUrl.query);
 		}else{
 			console.log(req._parsedOriginalUrl.query);
-			var page = req._parsedOriginalUrl.query
+			var page = req._parsedOriginalUrl.query;
 			Memorando.find().limit(3).skip(page*3).sort({data : -1}).populate('usuario').exec()
 				.then(
 					function(memorandos){

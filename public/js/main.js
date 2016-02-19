@@ -1,8 +1,8 @@
-angular.module('cartic', ['ngRoute', 'ngResource', 'infinite-scroll']).config(function($routeProvider){
+angular.module('cartic', ['ngRoute', 'ngResource', 'tagged.directives.infiniteScroll']).config(function($routeProvider){
 
 	$routeProvider.when('/inicio', {
 		templateUrl: '/partials/visualizaMemorando.html',
-		controller: 'MemorandoController'
+		controller: 'MemorandoControllerInfinite'
 	});
 
 	$routeProvider.when('/memorando/:id', {
