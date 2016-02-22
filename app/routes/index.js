@@ -4,7 +4,7 @@ module.exports = function(app) {
 
 	//home page (login links)
 	app.get('/', function(req, res){
-		
+
 		res.render('index');
 	});
 
@@ -27,12 +27,14 @@ module.exports = function(app) {
 
 	app.get('/home', logado, function(req, res){
 		var login = '';
+		var id = req.session.passport.user;
 		if(req.user){
 			login = req.user.login;
 		}
+		console.log(req.session.passport.user);
 		res.render('home.ejs', {
-			"usuario" : login
-
+			"usuario" : login,
+			"id" : id
 		});
 	});
 
