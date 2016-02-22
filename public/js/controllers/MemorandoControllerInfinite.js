@@ -3,6 +3,12 @@ angular.module('cartic').controller('MemorandoControllerInfinite', ['$scope', '$
   $scope.memorandos = [];
   $scope.fetching = false;
 
+  /*
+    O código para fazer a busca própria de memorandos
+    estava no MemorandoController, usando um evento
+    de JQuery que eu apaguei.
+  */
+
   // Fetch more items
   $scope.getMore = function() {
     $scope.fetching = true;

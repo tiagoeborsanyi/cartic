@@ -4,21 +4,21 @@
 <h2 class="centro">Últimos memorandos adicionados</h2>
 
 <!--div infinite-scroll='nextPage()' infinite-scroll-distance='3' -->
-<div tagged-infinite-scroll="getMore()">
+<div tagged-infinite-scroll="getMore()" tagged-infinite-scroll-distance="0">
 <div ng-repeat="memorando in memorandos | filter: global.search" class="span11 memorando">
-			<form action="" class="form-lista form-horizontal">
+			<form action="" class="form form-lista form-horizontal">
 		<div style="margin-left: 10px;" class="controls controls-row">
-			<span style="float: left;">Data: {{memorando.data}}</span><a ng-click="remove(memorando)" class="btn-link"><i style="float: right;" class="icon-remove"></i></a><a ng-href="#/memorando/{{memorando._id}}"><i style="float: right; margin-right: 5px;" class="icon-pencil"></i></a>
+			<span style="float: left;">Data: {{memorando.data | date: 'dd/MM/yyyy'}}</span><a ng-click="remove(memorando)" class="btn-link"><i style="float: right;" class="icon-remove"></i></a><a ng-href="#/memorando/{{memorando._id}}"><i style="float: right; margin-right: 5px;" class="icon-pencil"></i></a>
 
 		</div>
 		<br>
 		<div class="controls controls-row">
 				<div class="control-goup span6">
-					<label for="" class="control-label titulo-label">Lotação de saída:</label>
+					<label for="" class="control-label titulo-label negrito">Lotação de saída:</label>
 					<div class="controls">{{memorando.lotacaosaida}}</div>
 				</div>
 				<div class="control-goup span6">
-					<label for="" class="control-label titulo-label">Lotação de destino:</label>
+					<label for="" class="control-label titulo-label negrito">Lotação de destino:</label>
 					<div class="controls">{{memorando.lotacaodestino}}</div>
 				</div>
 		</div>
@@ -26,11 +26,11 @@
 				</div>
 		<div class="controls controls-row">
 				<div class="control-group span6">
-					<label for="" class="control-label titulo-label">Nº memorando:</label>
+					<label for="" class="control-label titulo-label negrito">Nº memorando:</label>
 					<div class="controls"><a ng-href="#/memorando/imprime/{{memorando._id}}">{{memorando.numeromemorando}}</a></div>
 				</div>
 				<div class="control-group span6">
-					<label for="" class="control-label titulo-label">Assunto:</label>
+					<label for="" class="control-label titulo-label negrito">Assunto:</label>
 					<div class="controls">{{memorando.assunto}}</div>
 				</div>
 		</div>
@@ -57,7 +57,7 @@
 				</table><br>
 				<div class="controls controls-row">
 				<div class="control-group span8">
-					<label for="" class="control-label titulo-label">Observação:</label>
+					<label for="" class="control-label titulo-label negrito">Observação:</label>
 					<div class="controls">{{memorando.observacao}}</div>
 				</div>
 				</div>
