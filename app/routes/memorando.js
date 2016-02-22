@@ -21,7 +21,7 @@ module.exports = function(app){
 	*****/
 
 	app.route('/inicio')
-		.get(controller.listaMemorandos)
+		.get(varificaAutenticacao, controller.listaMemorandos)
 		.post(varificaAutenticacao, controller.salvaMemorando);
 
 	//rota para deletar um memorando

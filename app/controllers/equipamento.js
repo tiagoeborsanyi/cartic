@@ -6,18 +6,18 @@ module.exports = function(app){
 	var controller = {};
 
 	controller.listaEquipamentos = function(req, res){
-
-		Equipamento.find({usuario: {$ne: null}}).populate('usuario').exec()
-			.then(
-				function(equipamentos){
-					res.json(equipamentos);
-				},
-				function(erro){
-					console.error(erro);
-					res.status(500).json(erro);
+					Equipamento.find({}).populate('usuario').exec()
+					.then(
+						function(equipamentos){
+							res.json(equipamentos);
+						},
+						function(erro){
+							console.error(erro);
+							res.status(500).json(erro);
 				});
+};
 
-	};
+
 
 	controller.obtemEquipamentos = function(req, res){
 
