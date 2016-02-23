@@ -33,13 +33,15 @@
 							<th>Usuário</th>
 							<th>Remover</th>
 						</tr>
-						<tr ng-repeat="equipamento in equipamentos | filter: global.search">
-							<td></td>
-							<td>{{equipamento.tombo}}</td>
-							<td><a ng-href="#/edita/equipamento/{{equipamento._id}}">{{equipamento.descricao}}</a></td>
-							<td>{{equipamento.usuario.nome}}</td>
-							<td><button ng-click="remove(equipamento)" class="btn-link"><i style="float: right;" class="icon-remove"></i></button></td>
-						</tr>
+						<div tagged-infinite-scroll="getMore()" tagged-infinite-scroll-distance="0">
+							<tr ng-repeat="equipamento in equipamentos | filter: global.search">
+								<td></td>
+								<td>{{equipamento.tombo}}</td>
+								<td><a ng-href="#/edita/equipamento/{{equipamento._id}}">{{equipamento.descricao}}</a></td>
+								<td>{{equipamento.usuario.nome}}</td>
+								<td><button ng-click="remove(equipamento)" class="btn-link"><i style="float: right;" class="icon-remove"></i></button></td>
+							</tr>
+						</div>
 					</table>
 				</div>
 

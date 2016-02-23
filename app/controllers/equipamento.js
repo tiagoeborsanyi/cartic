@@ -6,7 +6,9 @@ module.exports = function(app){
 	var controller = {};
 
 	controller.listaEquipamentos = function(req, res){
-					Equipamento.find({}).populate('usuario').exec()
+					var page = req._parsedOriginalUrl.query;
+					console.log(page);
+					Equipamento.find({}).limit(40).skip(page*40).populate('usuario').exec()
 					.then(
 						function(equipamentos){
 							res.json(equipamentos);

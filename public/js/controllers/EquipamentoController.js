@@ -6,6 +6,32 @@ angular.module('cartic').controller('EquipamentoController', function($http, $sc
 	});
 
 
+	$scope.page = 0;
+	$scope.equipamentos = [];
+	$scope.fetching = false;
+
+	/*
+		O código para fazer a busca própria de memorandos
+		estava no MemorandoController, usando um evento
+		de JQuery que eu apaguei.
+	*/
+
+	// Fetch more items
+	$scope.getMore = function() {
+		$scope.fetching = true;
+		$http.get('/equipamento/?'+ $scope.page).then(function(equipamentos) {
+			console.log('teste', equipamentos.data);
+			$scope.fetching = false;
+			// Append the items to the list
+			$scope.equipamentos = $scope.equipamentos.concat(equipamentos.data);
+		});
+		$scope.page++;
+	};
+
+
+
+
+
 	//retorna todos os equipamentos
 	function buscaEquipamentos(){
 
