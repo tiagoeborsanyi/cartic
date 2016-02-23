@@ -56,7 +56,7 @@ angular.module('cartic').controller('MemorandoController', function($scope, $htt
 
 		if($scope.memorando.tabela === undefined || $scope.memorando.tabela === null){
 			$scope.memorando.tabela = [];
-			$scope.selecionalotacao = [{teste: 'Em Transito'}, {teste: $("#provider-json-2").val()}];
+			$scope.selecionalotacao = [{teste: 'Em Transito'}, {teste: 'Manutenção'}, {teste: $("#provider-json-2").val()}];
 			console.log($("#provider-json-2").val());
 		}
 

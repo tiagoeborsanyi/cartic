@@ -5,6 +5,13 @@ angular.module('cartic', ['ngRoute', 'ngResource', 'tagged.directives.infiniteSc
 		controller: 'MemorandoControllerInfinite'
 	});
 
+	/*
+		Eu posso criar uma url para mostrar somente os resultados de buscas,
+		quando o botão for clicado
+		ex: /inicio/busca
+		Assim quando o usuário clicar no botão de buscar ele irá parar nessa url
+	*/
+
 	$routeProvider.when('/memorando/:id', {
 		templateUrl: '/partials/editaMemorando.html',
 		controller: 'MemorandoController'
