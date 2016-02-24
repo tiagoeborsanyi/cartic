@@ -45,17 +45,18 @@ angular.module('cartic').controller('MemorandoControllerInfinite', ['$scope', '$
           success: function(memorandos){
             console.log(url);
             //document.write(memorandos[0].lotacaosaida);
-            console.log(memorandos[0]);
-            $scope.memorandos.push(memorandos[0]);
-            $scope.$apply();
+            console.log(memorandos.length);
+            for(var i = 0; i < memorandos.length; i++){
+              $scope.memorandos.push(memorandos[i]);
+              $scope.$apply();
+            }
           }
       });
-
-
     }
     $('#texto-busca').keypress(function(e) {
-      if(e.which == 13)
+      if(e.which == 13){
         getresult();
+      }
     });
   });
 
