@@ -2,7 +2,6 @@ angular.module('cartic').controller('MemorandoController', function($scope, $htt
 
 	$scope.filtro = '';
 
-
 	/*
 		Estamos buscando os dados do servidor
 		passando a rota via get de qual controller queremos do express

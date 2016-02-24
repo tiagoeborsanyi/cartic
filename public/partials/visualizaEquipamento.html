@@ -35,7 +35,7 @@
 						</tr>
 						<div tagged-infinite-scroll="getMore()" tagged-infinite-scroll-distance="0">
 							<tr ng-repeat="equipamento in equipamentos | filter: global.search">
-								<td></td>
+								<td>{{$index+1}}</td>
 								<td>{{equipamento.tombo}}</td>
 								<td><a ng-href="#/edita/equipamento/{{equipamento._id}}">{{equipamento.descricao}}</a></td>
 								<td>{{equipamento.usuario.nome}}</td>

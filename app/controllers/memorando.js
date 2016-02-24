@@ -19,11 +19,22 @@ module.exports = function(app){
 
 	controller.listaMemorandos = function(req, res){
 
-		if(req._parsedOriginalUrl.query == 'texto'){
+		if(req._parsedOriginalUrl.query.length >= 3){
 			//ful-text
-			console.log(req._parsedOriginalUrl.query);
+			console.log('IF: '+req._parsedOriginalUrl.query);
+			var text = req._parsedOriginalUrl.query;
+			Memorando.find({$or: [{"tabela.tombo": text}, { numeromemorando: text }]}).sort({data : -1}).populate('usuario').exec()
+				.then(
+					function(memorandos){
+						res.json(memorandos);
+						console.log('Data Memorandos: '+memorandos);
+					},
+					function(erro){
+						console.error(erro);
+						res.status(500).json(erro);
+					});
 		}else{
-			console.log(req._parsedOriginalUrl.query);
+			console.log('else: '+req._parsedOriginalUrl.query);
 			var page = req._parsedOriginalUrl.query;
 			Memorando.find().limit(3).skip(page*3).sort({data : -1}).populate('usuario').exec()
 				.then(

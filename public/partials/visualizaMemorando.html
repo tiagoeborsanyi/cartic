@@ -2,7 +2,6 @@
 	Este form serve para apresentar os dados do memorando na tela
 -->
 <h2 class="centro">Últimos memorandos adicionados</h2>
-
 <!--div infinite-scroll='nextPage()' infinite-scroll-distance='3' -->
 <div tagged-infinite-scroll="getMore()" tagged-infinite-scroll-distance="0">
 <div ng-repeat="memorando in memorandos | filter: global.search" class="span11 memorando">

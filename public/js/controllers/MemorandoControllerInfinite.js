@@ -33,4 +33,32 @@ angular.module('cartic').controller('MemorandoControllerInfinite', ['$scope', '$
 				});
 		}
   };
+
+
+  //filtro de buscas
+  $(document).ready(function() {
+    function getresult() {
+      var url = '/inicio?'+$('#texto-busca').val()
+      $.ajax({
+          url: url,
+          type: "GET",
+          success: function(memorandos){
+            console.log(url);
+            //document.write(memorandos[0].lotacaosaida);
+            console.log(memorandos[0]);
+            $scope.memorandos.push(memorandos[0]);
+            $scope.$apply();
+          }
+      });
+
+
+    }
+    $('#texto-busca').keypress(function(e) {
+      if(e.which == 13)
+        getresult();
+    });
+  });
+
+
+
 }]);
