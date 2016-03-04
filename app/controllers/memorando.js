@@ -21,9 +21,13 @@ module.exports = function(app){
 
 		if(req._parsedOriginalUrl.query.length >= 3){
 			//ful-text
-			console.log('IF: '+req._parsedOriginalUrl.query);
 			var text = req._parsedOriginalUrl.query;
-			Memorando.find({$or: [{"tabela.tombo": text}, { numeromemorando: text }]}).sort({data : -1}).populate('usuario').exec()
+			console.log(text);
+			var result = text.split('%20');
+			console.log('result: '+result);
+			var resultFormat = result.join(' ');
+			console.log(resultFormat);
+			Memorando.find({$or: [{"tabela.tombo": resultFormat}, { numeromemorando: resultFormat }, {lotacaodestino: resultFormat}]}).sort({data : -1}).populate('usuario').exec()
 				.then(
 					function(memorandos){
 						res.json(memorandos);
