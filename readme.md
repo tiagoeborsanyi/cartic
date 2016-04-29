@@ -17,4 +17,4 @@
 <p>
   Segue algumas imagens de tela do sistema:
 </p>
-<img src="public/vendor/bootstrap/css/img/sistema/inicio.png">
+![alt tag](https://github.com/tiagoeborsanyi/cartic/blob/master/public/vendor/bootstrap/img/sistema/inicio.png)
