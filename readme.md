@@ -18,15 +18,15 @@
   Segue algumas imagens de tela do sistema:
 </p>
 ![alt tag](https://github.com/tiagoeborsanyi/cartic/blob/master/public/vendor/bootstrap/img/sistema/inicio.png)
-\n\n
+<p></p>
 ![alt tag](https://github.com/tiagoeborsanyi/cartic/blob/master/public/vendor/bootstrap/img/sistema/lista-memo.png)
-<br>
+<p></p>
 ![alt tag](https://github.com/tiagoeborsanyi/cartic/blob/master/public/vendor/bootstrap/img/sistema/cad-memo.png)
-<br>
+<p></p>
 ![alt tag](https://github.com/tiagoeborsanyi/cartic/blob/master/public/vendor/bootstrap/img/sistema/imprime-memo.png)
-<br>
+<p></p>
 ![alt tag](https://github.com/tiagoeborsanyi/cartic/blob/master/public/vendor/bootstrap/img/sistema/relatorio-equipamento.png)
-<br>
+<p></p>
 ![alt tag](https://github.com/tiagoeborsanyi/cartic/blob/master/public/vendor/bootstrap/img/sistema/config-opr.png)
-<br>
+<p></p>
 ![alt tag](https://github.com/tiagoeborsanyi/cartic/blob/master/public/vendor/bootstrap/img/sistema/cad-user.png)
