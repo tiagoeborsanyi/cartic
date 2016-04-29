@@ -17,3 +17,4 @@
 <p>
   Segue algumas imagens de tela do sistema:
 </p>
+<img src="public/vendor/bootstrap/css/img/sistema/inicio.png">
