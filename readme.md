@@ -18,7 +18,7 @@
   Segue algumas imagens de tela do sistema:
 </p>
 ![alt tag](https://github.com/tiagoeborsanyi/cartic/blob/master/public/vendor/bootstrap/img/sistema/inicio.png)
-<br>
+\n\n
 ![alt tag](https://github.com/tiagoeborsanyi/cartic/blob/master/public/vendor/bootstrap/img/sistema/lista-memo.png)
 <br>
 ![alt tag](https://github.com/tiagoeborsanyi/cartic/blob/master/public/vendor/bootstrap/img/sistema/cad-memo.png)
